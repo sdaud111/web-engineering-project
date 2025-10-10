@@ -1,0 +1,12 @@
+# Ignore node_modules
+server/node_modules/
+Job-listing/node_modules/
+
+# Ignore build or dist folders
+server/build/
+Job-listing/build/
+dist/
+
+# Ignore environment and log files
+.env
+*.log
