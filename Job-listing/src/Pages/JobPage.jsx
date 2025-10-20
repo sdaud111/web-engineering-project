@@ -12,34 +12,34 @@ const JobPage = () => {
       <div className="container m-auto py-6 px-6">
         <Link
           to="/jobs"
-          className="text-indigo-500 hover:text-indigo-600 flex items-center"
+          className="text-[#578FCA] hover:text-[#3674B5] flex items-center transition-colors duration-200"
         >
           <FaArrowLeft className='mr-2' />Back to Job Listings
         </Link>
       </div>
     </section>
 
-    <section className="bg-indigo-50">
+    <section className="bg-[#D1F8EF] bg-opacity-50">
       <div className="container m-auto py-10 px-6">
        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <main className="md:col-span-2">
             <div
-              className="bg-white p-6 rounded-lg shadow-md text-center md:text-left"
+              className="bg-white p-6 rounded-lg shadow-md text-center md:text-left border-l-4 border-[#3674B5]"
             >
-              <div className="text-gray-500 mb-4">{job.type}</div>
-              <h1 className="text-3xl font-bold mb-4">
+              <div className="text-[#578FCA] mb-4 font-medium">{job.type}</div>
+              <h1 className="text-3xl font-bold mb-4 text-[#3674B5]">
                {job.title}
               </h1>
               <div
-                className="text-gray-500 mb-4 flex align-middle justify-center md:justify-start"
+                className="mb-4 flex align-middle justify-center md:justify-start"
               >
-               <FaMapMarker className='mr-1 text-orange-700'/>
-                <p className="text-orange-700">{job.location}</p>
+               <FaMapMarker className='mr-1 text-[#A1E3F9]'/>
+                <p className="text-[#578FCA]">{job.location}</p>
               </div>
             </div>
 
             <div className="bg-white p-6 rounded-lg shadow-md mt-6">
-              <h3 className="text-indigo-800 text-lg font-bold mb-6">
+              <h3 className="text-[#3674B5] text-lg font-bold mb-6">
                 Job Description
               </h3>
 
@@ -47,7 +47,7 @@ const JobPage = () => {
               {job.description}
               </p>
 
-              <h3 className="text-indigo-800 text-lg font-bold mb-2">Salary</h3>
+              <h3 className="text-[#3674B5] text-lg font-bold mb-2">Salary</h3>
 
               <p className="mb-4">{job.salary} / Year</p>
             </div>
@@ -69,13 +69,13 @@ const JobPage = () => {
 
               <h3 className="text-xl">Contact Email:</h3>
 
-              <p className="my-2 bg-indigo-100 p-2 font-bold">
+              <p className="my-2 bg-[#D1F8EF] p-2 font-bold text-[#3674B5]">
                 {job.company.contactEmail}
               </p>
 
               <h3 className="text-xl">Contact Phone:</h3>
 
-              <p className="my-2 bg-indigo-100 p-2 font-bold">{job.company.contactPhone}</p>
+              <p className="my-2 bg-[#D1F8EF] p-2 font-bold text-[#3674B5]">{job.company.contactPhone}</p>
             </div>
 
             {/* <!-- Manage --> */}
@@ -83,7 +83,7 @@ const JobPage = () => {
               <h3 className="text-xl font-bold mb-6">Manage Job</h3>
               <Link
                 to={`/jobs/edits/${job.id}`}
-                className="bg-indigo-500 hover:bg-indigo-600 text-white text-center font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
+                className="bg-[#3674B5] hover:bg-[#578FCA] text-white text-center font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
                 >Edit Job
                 </Link>
               <button

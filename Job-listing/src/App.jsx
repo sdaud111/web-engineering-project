@@ -16,15 +16,21 @@ import AddJobPage from './Pages/AddJobPage'
 import LoginPage from './Pages/LoginPage'
 import PrivateRoute from './Components/PrivateRoute'
 import SignupPage from './Pages/SignUpPage'
+import AISearchPage from './Pages/AISearchPage'
+import ProfilePage from './Pages/ProfilePage'
+import MyApplicationsPage from './Pages/MyApplicationsPage'
+import AICandidateSearchPage from './Pages/AICandidateSearchPage'
+import EmployerDashboard from './Pages/EmployerDashboard'
+
 const App = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <>
-        {/* Default: redirect / to /login */}
-        <Route index element={<Navigate to="/signup" />} />
-
-        {/* Public Route */}
+        {/* Removed default redirect that was conflicting with the login flow */}
+        
+        {/* Public Routes */}
         <Route path="/signup" element={<SignupPage />} />
+        <Route path="/login" element={<LoginPage />} />
 
         {/* Protected Routes */}
         <Route
@@ -35,10 +41,14 @@ const App = () => {
             </PrivateRoute>
           }
         >
-           <Route path="/login" element={<LoginPage />} />
-          <Route path="home" element={<HomePage />} />
+          <Route index element={<HomePage />} />
           <Route path="jobs" element={<JobsPage />} />
           <Route path="add-job" element={<AddJobPage />} />
+          <Route path="ai-search" element={<AISearchPage />} />
+          <Route path="profile" element={<ProfilePage />} />
+          <Route path="my-applications" element={<MyApplicationsPage />} />
+          <Route path="employer/find-talent" element={<AICandidateSearchPage />} />
+          <Route path="employer/dashboard" element={<EmployerDashboard />} />
           <Route path="jobs/:id" element={<JobPage />} loader={jobLoader} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>

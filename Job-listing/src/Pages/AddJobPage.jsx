@@ -13,25 +13,25 @@ const AddJobPage = () => {
   const [contactPhone, setContactPhone] = useState("");
   return (
     <>
-      <section className="bg-indigo-50">
+      <section className="bg-[#A1E3F9] bg-opacity-30">
         <div className="container m-auto max-w-2xl py-24">
-          <div className="bg-white px-6 py-8 mb-4 shadow-md rounded-md border m-4 md:m-0">
+          <div className="bg-gradient-to-br from-[#D1F8EF] to-[#A1E3F9] bg-opacity-95 px-6 py-8 mb-4 shadow-md rounded-md border-t-4 border-[#3674B5] m-4 md:m-0">
             <form>
-              <h2 className="text-3xl text-center font-semibold mb-6">
+              <h2 className="text-3xl text-center font-semibold mb-6 text-[#3674B5]">
                 Add Job
               </h2>
 
               <div className="mb-4">
                 <label
                   htmlFor="type"
-                  className="block text-gray-700 font-bold mb-2"
+                  className="block text-[#578FCA] font-bold mb-2"
                 >
                   Job Type
                 </label>
                 <select
                   id="type"
                   name="type"
-                  className="border rounded w-full py-2 px-3"
+                  className="border border-[#3674B5] rounded w-full py-2 px-3 text-[#3674B5] bg-white focus:outline-none focus:ring-2 focus:ring-[#A1E3F9]"
                   required
                 >
                   <option value="Full-Time">Full-Time</option>
@@ -42,29 +42,29 @@ const AddJobPage = () => {
               </div>
 
               <div className="mb-4">
-                <label className="block text-gray-700 font-bold mb-2">
+                <label className="block text-[#578FCA] font-bold mb-2">
                   Job Listing Name
                 </label>
                 <input
                   type="text"
                   id="title"
                   name="title"
-                  className="border rounded w-full py-2 px-3 mb-2"
-                  placeholder="eg. Beautiful Apartment In Miami"
+                  className="border border-[#3674B5] rounded w-full py-2 px-3 mb-2 text-[#3674B5] bg-white focus:outline-none focus:ring-2 focus:ring-[#A1E3F9]"
+                  placeholder="eg. Software Engineer at Tech Company"
                   required
                 />
               </div>
               <div className="mb-4">
                 <label
                   htmlFor="description"
-                  className="block text-gray-700 font-bold mb-2"
+                  className="block text-[#578FCA] font-bold mb-2"
                 >
                   Description
                 </label>
                 <textarea
                   id="description"
                   name="description"
-                  className="border rounded w-full py-2 px-3"
+                  className="border border-[#3674B5] rounded w-full py-2 px-3 text-[#3674B5] bg-white focus:outline-none focus:ring-2 focus:ring-[#A1E3F9]"
                   rows="4"
                   placeholder="Add any job duties, expectations, requirements, etc"
                 ></textarea>
@@ -73,14 +73,14 @@ const AddJobPage = () => {
               <div className="mb-4">
                 <label
                   htmlFor="type"
-                  className="block text-gray-700 font-bold mb-2"
+                  className="block text-[#578FCA] font-bold mb-2"
                 >
                   Salary
                 </label>
                 <select
                   id="salary"
                   name="salary"
-                  className="border rounded w-full py-2 px-3"
+                  className="border border-[#3674B5] rounded w-full py-2 px-3 text-[#3674B5] bg-white focus:outline-none focus:ring-2 focus:ring-[#A1E3F9]"
                   required
                 >
                   <option value="Under $50K">Under $50K</option>
@@ -98,25 +98,25 @@ const AddJobPage = () => {
               </div>
 
               <div className="mb-4">
-                <label className="block text-gray-700 font-bold mb-2">
+                <label className="block text-[#578FCA] font-bold mb-2">
                   Location
                 </label>
                 <input
                   type="text"
                   id="location"
                   name="location"
-                  className="border rounded w-full py-2 px-3 mb-2"
+                  className="border border-[#3674B5] rounded w-full py-2 px-3 mb-2 text-[#3674B5] bg-white focus:outline-none focus:ring-2 focus:ring-[#A1E3F9]"
                   placeholder="Company Location"
                   required
                 />
               </div>
 
-              <h3 className="text-2xl mb-5">Company Info</h3>
+              <h3 className="text-2xl mb-5 text-[#3674B5]">Company Info</h3>
 
               <div className="mb-4">
                 <label
                   htmlFor="company"
-                  className="block text-gray-700 font-bold mb-2"
+                  className="block text-[#578FCA] font-bold mb-2"
                 >
                   Company Name
                 </label>
@@ -124,7 +124,7 @@ const AddJobPage = () => {
                   type="text"
                   id="company"
                   name="company"
-                  className="border rounded w-full py-2 px-3"
+                  className="border border-[#3674B5] rounded w-full py-2 px-3 text-[#3674B5] bg-white focus:outline-none focus:ring-2 focus:ring-[#A1E3F9]"
                   placeholder="Company Name"
                 />
               </div>
@@ -132,14 +132,14 @@ const AddJobPage = () => {
               <div className="mb-4">
                 <label
                   htmlFor="company_description"
-                  className="block text-gray-700 font-bold mb-2"
+                  className="block text-[#578FCA] font-bold mb-2"
                 >
                   Company Description
                 </label>
                 <textarea
                   id="company_description"
                   name="company_description"
-                  className="border rounded w-full py-2 px-3"
+                  className="border border-[#3674B5] rounded w-full py-2 px-3 text-[#3674B5] bg-white focus:outline-none focus:ring-2 focus:ring-[#A1E3F9]"
                   rows="4"
                   placeholder="What does your company do?"
                 ></textarea>
@@ -148,7 +148,7 @@ const AddJobPage = () => {
               <div className="mb-4">
                 <label
                   htmlFor="contact_email"
-                  className="block text-gray-700 font-bold mb-2"
+                  className="block text-[#578FCA] font-bold mb-2"
                 >
                   Contact Email
                 </label>
@@ -156,7 +156,7 @@ const AddJobPage = () => {
                   type="email"
                   id="contact_email"
                   name="contact_email"
-                  className="border rounded w-full py-2 px-3"
+                  className="border border-[#3674B5] rounded w-full py-2 px-3 text-[#3674B5] bg-white focus:outline-none focus:ring-2 focus:ring-[#A1E3F9]"
                   placeholder="Email address for applicants"
                   required
                 />
@@ -164,7 +164,7 @@ const AddJobPage = () => {
               <div className="mb-4">
                 <label
                   htmlFor="contact_phone"
-                  className="block text-gray-700 font-bold mb-2"
+                  className="block text-[#578FCA] font-bold mb-2"
                 >
                   Contact Phone
                 </label>
@@ -172,14 +172,14 @@ const AddJobPage = () => {
                   type="tel"
                   id="contact_phone"
                   name="contact_phone"
-                  className="border rounded w-full py-2 px-3"
+                  className="border border-[#3674B5] rounded w-full py-2 px-3 text-[#3674B5] bg-white focus:outline-none focus:ring-2 focus:ring-[#A1E3F9]"
                   placeholder="Optional phone for applicants"
                 />
               </div>
 
               <div>
                 <button
-                  className="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline"
+                  className="bg-[#3674B5] hover:bg-[#578FCA] text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline"
                   type="submit"
                 >
                   Add Job

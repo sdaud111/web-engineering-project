@@ -2,14 +2,15 @@ import React from 'react'
 import logo from '../assets/logo.png';
 import {NavLink}  from 'react-router-dom'
 const Navbar = () => {
-  const linkClass=({ isActive })=>
-    isActive ? 'text-white bg-black hover:bg-gray-900 hover:text-white rounded-md px-3 py-2':
-      'text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2';
+  const linkClass = ({ isActive }) => {
+    return isActive 
+      ? 'text-white bg-[#578FCA] hover:bg-[#A1E3F9] hover:text-[#3674B5] rounded-md px-3 py-2 font-medium transition-all duration-200'
+      : 'text-white hover:bg-[#A1E3F9] hover:text-[#3674B5] rounded-md px-3 py-2 font-medium transition-all duration-200';
+  };
 
   return (
-
     <>
-     <nav className="bg-indigo-700 border-b border-indigo-500">
+     <nav className="bg-[#3674B5] border-b border-[#A1E3F9] shadow-lg">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           <div
@@ -17,18 +18,16 @@ const Navbar = () => {
           >
             {/* <!-- Logo --> */}
             <NavLink className="flex flex-shrink-0 items-center mr-4" to="/">
-              <img
-                className="h-10 w-auto"
-                src={logo}
-                alt="React Jobs"
-              />
-              <span className="hidden md:block text-white text-2xl font-bold ml-2"
-                >React Jobs</span >
+              <div className="h-10 w-10 rounded-full bg-[#A1E3F9] flex items-center justify-center">
+                <span className="text-[#3674B5] font-bold text-xl">JC</span>
+              </div>
+              <span className="hidden md:block text-[#D1F8EF] text-2xl font-bold ml-2"
+                >Job Connect</span >
             </NavLink>
             <div className="md:ml-auto">
               <div className="flex space-x-2">
                 <NavLink
-                  to="/home"
+                  to="/"
                   className={linkClass}
                   >Home</NavLink
                 >
@@ -41,6 +40,31 @@ const Navbar = () => {
                   to="/add-job"
                   className={linkClass}
                   >Add Job</NavLink
+                >
+                <NavLink
+                  to="/ai-search"
+                  className={linkClass}
+                  >AI Search</NavLink
+                >
+                <NavLink
+                  to="/profile"
+                  className={linkClass}
+                  >Profile</NavLink
+                >
+                <NavLink
+                  to="/my-applications"
+                  className={linkClass}
+                  >My Applications</NavLink
+                >
+                <NavLink
+                  to="/employer/find-talent"
+                  className={linkClass}
+                  >Find Talent</NavLink
+                >
+                <NavLink
+                  to="/employer/dashboard"
+                  className={linkClass}
+                  >Dashboard</NavLink
                 >
               </div>
             </div>

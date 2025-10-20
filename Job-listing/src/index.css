@@ -1,1 +1,40 @@
 @import "tailwindcss";
+
+:root {
+  --color-primary: #3674B5;    /* Deep blue for primary elements */
+  --color-secondary: #578FCA;  /* Medium blue for secondary elements */
+  --color-accent: #A1E3F9;     /* Light blue for accents */
+  --color-light: #D1F8EF;      /* Mint for backgrounds */
+}
+
+body {
+  background-color: var(--color-light);
+  color: var(--color-primary);
+}
+
+/* Custom button styles */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #252447;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: var(--color-secondary);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #7d99a3;
+  transform: translateY(-1px);
+}
