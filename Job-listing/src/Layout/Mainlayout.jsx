@@ -37,7 +37,7 @@ const Mainlayout = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <main className="flex-grow bg-[#D1F8EF]">
+      <main className="flex-grow bg-black">
         <Outlet />
       </main>
       <Footer />

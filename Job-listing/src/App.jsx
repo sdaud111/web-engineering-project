@@ -21,6 +21,7 @@ import ProfilePage from './Pages/ProfilePage'
 import MyApplicationsPage from './Pages/MyApplicationsPage'
 import AICandidateSearchPage from './Pages/AICandidateSearchPage'
 import EmployerDashboard from './Pages/EmployerDashboard'
+import LandingPage from './Pages/LandingPage'
 
 const App = () => {
   const router = createBrowserRouter(
@@ -31,6 +32,7 @@ const App = () => {
         {/* Public Routes */}
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/landing" element={<LandingPage />} />
 
         {/* Protected Routes */}
         <Route
