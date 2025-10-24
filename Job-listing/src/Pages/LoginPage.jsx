@@ -20,7 +20,8 @@ const LoginPage = () => {
       // Set the authentication flag
       localStorage.setItem("isAuth", "true");
       console.log("Authentication successful, navigating to home page");
-      navigate("/"); // redirect to home page
+     navigate("/home");
+ // redirect to home page
       return;
     }
 
@@ -35,7 +36,9 @@ const LoginPage = () => {
         // Set the authentication flag
         localStorage.setItem("isAuth", "true");
         console.log("Authentication successful, navigating to home page");
-        navigate("/"); // redirect to home page
+       navigate("/home");
+
+// redirect to home page
       } else {
         alert(result.data); // Show error message from server
       }

@@ -27,7 +27,7 @@ const Navbar = () => {
             <div className="md:ml-auto">
               <div className="flex space-x-2">
                 <NavLink
-                  to="/"
+                  to="/home"
                   className={linkClass}
                   >Home</NavLink
                 >
