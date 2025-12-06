@@ -1,3 +1,5 @@
+
+
 :root {
   --color-primary: #3674B5;    /* Deep blue for primary elements */
   --color-secondary: #578FCA;  /* Medium blue for secondary elements */
@@ -9,6 +11,11 @@ body {
   background-color: var(--color-light);
   color: var(--color-primary);
 }
+
+.fjalla {
+    font-family: 'Bricolage Grotesque', sans-serif;
+}
+
 
 /* Custom button styles */
 .btn-primary {

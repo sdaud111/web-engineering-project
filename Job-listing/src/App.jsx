@@ -1,40 +1,53 @@
-import React from "react";
+import React from 'react'
 import {
   Route,
   createBrowserRouter,
   createRoutesFromElements,
   RouterProvider,
-} from "react-router-dom";
+  Navigate,
+} from 'react-router-dom'
 
-import Mainlayout from "./Layout/Mainlayout";
-import HomePage from "./Pages/HomePage";
-import JobsPage from "./Pages/JobsPage";
-import NotFoundPage from "./Pages/NotFoundPage";
-import JobPage, { jobLoader } from "./Pages/JobPage";
-import AddJobPage from "./Pages/AddJobPage";
-import LoginPage from "./Pages/LoginPage";
-import SignupPage from "./Pages/SignUpPage";
-import AISearchPage from "./Pages/AISearchPage";
-import ProfilePage from "./Pages/ProfilePage";
-import MyApplicationsPage from "./Pages/MyApplicationsPage";
-import AICandidateSearchPage from "./Pages/AICandidateSearchPage";
-import EmployerDashboard from "./Pages/EmployerDashboard";
-import LandingPage from "./Pages/LandingPage";
+import Mainlayout from './Layout/Mainlayout'
+import HomePage from './Pages/HomePage'
+import JobsPage from './Pages/JobsPage'
+import NotFoundPage from './Pages/NotFoundPage'
+import JobPage, { jobLoader } from './Pages/JobPage'
+import AddJobPage from './Pages/AddJobPage'
+import PrivateRoute from './Components/PrivateRoute'
+import AISearchPage from './Pages/AISearchPage'
+import ProfilePage from './Pages/ProfilePage'
+import MyApplicationsPage from './Pages/MyApplicationsPage'
+import AICandidateSearchPage from './Pages/AICandidateSearchPage'
+import EmployerDashboard from './Pages/EmployerDashboard'
+import LandingPage from "./Pages/LandingPage.jsx";
+import Signup from "./Pages/Signup.jsx";
+import Login2 from "./Pages/Login.jsx";
+import AddJob from "./Pages/AddJob.jsx";
+import SubmitJob from './Pages/SubmitJob.jsx'
 
 const App = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <>
-        {/* Default route — landing page */}
-        <Route path="/" element={<LandingPage />} />
+        {/* Removed default redirect that was conflicting with the login flow */}
+        
+        {/* Public Routes */}
+        <Route path={"/landing"} element={<LandingPage/>}/>
+          <Route path={"/signup2"} element={<Signup/>}/>
+          <Route path={"/login2"} element={<Login2/>}/>
+          <Route path="add-job2" element={<AddJob />} />
+          <Route path="submit-job" element={<SubmitJob/>}/>
 
-        {/* Public routes */}
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/signup" element={<SignupPage />} />
-
-        {/* Main layout with nested pages */}
-        <Route path="/" element={<Mainlayout />}>
-          <Route path="home" element={<HomePage />} />
+        {/* Protected Routes */}
+        <Route
+          path="/"
+          element={
+            <PrivateRoute>
+              <Mainlayout />
+            </PrivateRoute>
+          }
+        >
+          <Route index element={<HomePage />} />
           <Route path="jobs" element={<JobsPage />} />
           <Route path="add-job" element={<AddJobPage />} />
           <Route path="ai-search" element={<AISearchPage />} />
@@ -47,10 +60,9 @@ const App = () => {
         </Route>
       </>
     )
-  );
-console.log(getComputedStyle(document.body).backgroundColor);
+  )
 
-  return <RouterProvider router={router} />;
-};
+  return <RouterProvider router={router} />
+}
 
-export default App;
+export default App
