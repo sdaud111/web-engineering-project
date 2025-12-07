@@ -1,3 +1,4 @@
+// models/JobPosting.js
 const mongoose = require("mongoose");
 
 const JobPostingSchema = new mongoose.Schema({

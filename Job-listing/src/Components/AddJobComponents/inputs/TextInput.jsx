@@ -1,6 +1,6 @@
 import { colors } from "../nav/colors";
 
-const TextInput = ({ id, label, placeholder, value, setValue }) => {
+const TextInput = ({ id, label, placeholder, value, setValue, disabled }) => {
   return (
     <div className="flex gap-12 items-center">
       <label
@@ -18,7 +18,10 @@ const TextInput = ({ id, label, placeholder, value, setValue }) => {
         value={value ?? ""}
         onChange={(e) => setValue(e.target.value)}
         placeholder={placeholder}
-        className="w-1/2 text-2xl px-6 py-4 rounded-md focus:outline-none"
+        disabled={disabled}  // <-- Added disabled support
+        className={`w-1/2 text-2xl px-6 py-4 rounded-md focus:outline-none ${
+          disabled ? "bg-gray-200 cursor-not-allowed" : ""
+        }`}
         style={{
           borderWidth: "2px",
           borderStyle: "solid",
