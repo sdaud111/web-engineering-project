@@ -1,7 +1,7 @@
 
-const MenuHeading = ({ text, collapsed }) => {
+const MenuHeading = ({ text, collapsed, color }) => {
     if (collapsed) return <div className="w-full h-[52px]"></div>;
-    return <h2 className="text-2xl text-gray-400 mt-4">{text}</h2>;
+    return <h2 className={`text-2xl mt-4`} style={{color: color}}>{text}</h2>;
 };
 
 export default MenuHeading;

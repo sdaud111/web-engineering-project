@@ -6,6 +6,7 @@ import TextInput from "../inputs/TextInput";
 import TextInputWithIcon from "../inputs/TextInputWithIcon";
 import TextAreaInput from "../inputs/TextAreaInput";
 import { useNavigate } from "react-router-dom";
+import { colors } from "../nav/colors";
 
 
 const AddJobRightProgressBar = () => {
@@ -82,7 +83,7 @@ const AddJobRightProgressBar = () => {
   return (
     <div className="w-[60%] h-full flex items-center justify-center p-2">
       <div className="w-full h-full flex flex-col gap-8">
-        <h2 className="text-4xl font-bold">{heading}</h2>
+        <h2 className="text-4xl font-bold" style={{color: colors.mainMainHeadings}}>{heading}</h2>
         <div className="flex flex-col flex-1 p-4 rounded-md gap-6">
           <form className="flex flex-col flex-1">
             {(step === 0 && subStep === 0) && (
@@ -121,18 +122,22 @@ const AddJobRightProgressBar = () => {
                   onChange={(v) => MultiStepForm.update("job_position", v)}
                 />
                   <button
-                      type="button"
-                      className="bg-blue-950 text-lg text-white px-10 py-3 
-                      rounded-md cursor-pointer w-[calc(75%+4rem)] font-semibold"
-                      onClick={() => {
-                        MultiStepForm.update("job_name", document.getElementById("job_name").value);
-                        MultiStepForm.update("job_work_arrangement", document.getElementById("work_arrangement").value);
-                        MultiStepForm.update("job_psoition", document.getElementById("job_position").value);
-                        MultiStepForm.next();
-                      }}
-                    >
-                      Next
-                    </button>
+                  type="button"
+                  className={`
+                    text-[22px] text-white  font-semibold px-12 py-3 
+                    rounded-md cursor-pointer w-[calc(75%+4rem)] font-semibold
+                    bg-gradient-to-r from-blue-800 to-indigo-900 
+                  `}
+                  onClick={() => {
+                    MultiStepForm.update("job_name", document.getElementById("job_name").value);
+                    MultiStepForm.update("job_work_arrangement", document.getElementById("work_arrangement").value);
+                    MultiStepForm.update("job_psoition", document.getElementById("job_position").value);
+                    MultiStepForm.next();
+                  }}
+                >
+                  Next
+                </button>
+
                 </div>
               </>
             )}
@@ -153,18 +158,23 @@ const AddJobRightProgressBar = () => {
                 />
                    <div className="flex gap-4 mt-4 justify-between text-lg w-[calc(75%+4rem)]">
                       <button
-                        type="button"
-                        className="bg-gray-400 text-white px-8 py-3 rounded-md cursor-pointer"
-                        onClick={() => {
-                          MultiStepForm.prev();           
-                        }}
-                      >
-                        Back
-                      </button>
+                      type="button"
+                      className={`
+                        text-black font-semibold px-12 py-3 rounded-md cursor-pointer text-[22px]
+                        bg-gradient-to-r from-blue-300 to-indigo-300
+                        border-4
+                      `}
+                      onClick={() => {
+                        MultiStepForm.prev();
+                      }}
+                    >
+                      Back
+                    </button>
                     
                     <button
                       type="button"
-                      className="bg-blue-950 text-white px-6 py-2 rounded-md cursor-pointer"
+                      className="text-white font-semibold px-12 py-3 rounded-md cursor-pointer text-[20px] bg-gradient-to-r from-blue-800 to-indigo-900"
+                      style={{backgroundColor: colors.mainButtonNext}}
                       onClick={() => {
                         MultiStepForm.update("job_type", document.getElementById("job_type").value);
                         MultiStepForm.next();
@@ -200,20 +210,23 @@ const AddJobRightProgressBar = () => {
                 />
                    <div className="flex gap-4 mt-4 justify-between text-lg w-[calc(75%+4rem)]">
                       <button
-                        type="button"
-                        className="bg-gray-400 text-white px-8 py-3 rounded-md cursor-pointer"
-                        onClick={() => {
-                          console.log(step, subStep);
-                          MultiStepForm.prev();
-                          console.log(step, subStep);
-                        }}
-                      >
-                        Back
-                      </button>
+                      type="button"
+                      className={`
+                        text-black font-semibold px-12 py-3 rounded-md cursor-pointer text-[22px]
+                        bg-gradient-to-r from-blue-300 to-indigo-300
+                        border-4
+                      `}
+                      onClick={() => {
+                        MultiStepForm.prev();
+                      }}
+                    >
+                      Back
+                    </button>
                     
                     <button
                       type="button"
-                      className="bg-blue-950 text-white px-6 py-2 rounded-md cursor-pointer"
+                      className="text-white font-semibold px-12 py-3 rounded-md cursor-pointer text-[20px] bg-gradient-to-r from-blue-800 to-indigo-900"
+                      style={{backgroundColor: colors.mainButtonNext}}
                       onClick={() => {
                         MultiStepForm.update("salary_currency", document.getElementById("currency").value);
                         MultiStepForm.update("salary", document.getElementById("salary").value);
@@ -266,20 +279,23 @@ const AddJobRightProgressBar = () => {
                 />
                    <div className="flex gap-4 mt-4 justify-between text-lg w-[calc(75%+4rem)]">
                       <button
-                        type="button"
-                        className="bg-gray-400 text-white px-8 py-3 rounded-md cursor-pointer"
-                        onClick={() => {
-                          console.log(step, subStep);
-                          MultiStepForm.prev();
-                          console.log(step, subStep);
-                        }}
-                      >
-                        Back
-                      </button>
+                      type="button"
+                      className={`
+                        text-black font-semibold px-12 py-3 rounded-md cursor-pointer text-[22px]
+                        bg-gradient-to-r from-blue-300 to-indigo-300
+                        border-4
+                      `}
+                      onClick={() => {
+                        MultiStepForm.prev();
+                      }}
+                    >
+                      Back
+                    </button>
                     
                     <button
                       type="button"
-                      className="bg-blue-950 text-white px-6 py-2 rounded-md cursor-pointer"
+                      className="text-white font-semibold px-12 py-3 rounded-md cursor-pointer text-[20px] bg-gradient-to-r from-blue-800 to-indigo-900"
+                      style={{backgroundColor: colors.mainButtonNext}}
                       onClick={() => {
                         MultiStepForm.update("location_city", document.getElementById("city").value);
                         MultiStepForm.update("location_sector_area", document.getElementById("sector_area").value);
@@ -307,21 +323,24 @@ const AddJobRightProgressBar = () => {
                   <div className="flex gap-4 mt-4 justify-between text-lg">
                     {step !== 0 && (
                       <button
-                        type="button"
-                        className="bg-gray-400 text-white px-8 py-3 rounded-md cursor-pointer"
-                        onClick={() => {
-                          console.log(step, subStep);
-                          MultiStepForm.prev();
-                          console.log(step, subStep);
-                        }}
-                      >
-                        Back
-                      </button>
+                      type="button"
+                      className={`
+                        text-black font-semibold px-12 py-3 rounded-md cursor-pointer text-[22px]
+                        bg-gradient-to-r from-blue-300 to-indigo-300
+                        border-4
+                      `}
+                      onClick={() => {
+                        MultiStepForm.prev();
+                      }}
+                    >
+                      Back
+                    </button>
                     )}
 
                     <button
                       type="button"
-                      className="bg-blue-950 text-white px-6 py-2 rounded-md cursor-pointer"
+                      className="text-white  font-semibold px-12 py-3  rounded-md cursor-pointer text-[20px] bg-gradient-to-r from-blue-800 to-indigo-900"
+                      style={{backgroundColor: colors.mainButtonNext}}
                       onClick={() => {
                         MultiStepForm.update("job_description", document.getElementById("job_description").value);
                         MultiStepForm.next();
@@ -356,16 +375,23 @@ const AddJobRightProgressBar = () => {
                   setValue={(v) => MultiStepForm.update("contact_website", v)}
                 />
                 <div className="flex gap-4 mt-4 justify-between text-lg w-[calc(75%+4rem)]">
+                 <button
+                      type="button"
+                      className={`
+                        text-black font-semibold px-12 py-3 rounded-md cursor-pointer text-[22px]
+                        bg-gradient-to-r from-blue-300 to-indigo-300
+                        border-4
+                      `}
+                      onClick={() => {
+                        MultiStepForm.prev();
+                      }}
+                    >
+                      Back
+                    </button>
                   <button
                     type="button"
-                    className="bg-gray-400 text-white px-8 py-3 rounded-md cursor-pointer"
-                    onClick={() => MultiStepForm.prev()}
-                  >
-                    Back
-                  </button>
-                  <button
-                    type="button"
-                    className="bg-blue-950 text-white px-6 py-2 rounded-md cursor-pointer"
+                    className="text-white  font-semibold px-12 py-3  rounded-md cursor-pointer text-[20px] bg-gradient-to-r from-blue-800 to-indigo-900"
+                    style={{backgroundColor: colors.mainButtonNext}}
                     onClick={() => {
                         MultiStepForm.update("contact_phone", document.getElementById("phone").value);
                         MultiStepForm.update("contact_email", document.getElementById("email").value);
@@ -428,15 +454,22 @@ const AddJobRightProgressBar = () => {
                 />
                 <div className="flex gap-4 mt-4 justify-between text-lg w-[calc(75%+4rem)]">
                   <button
-                    type="button"
-                    className="bg-gray-400 text-white px-8 py-3 rounded-md cursor-pointer"
-                    onClick={() => MultiStepForm.prev()}
-                  >
-                    Back
-                  </button>
+                      type="button"
+                      className={`
+                        text-black font-semibold px-12 py-3 rounded-md cursor-pointer text-[22px]
+                        bg-gradient-to-r from-blue-300 to-indigo-300
+                        border-4
+                      `}
+                      onClick={() => {
+                        MultiStepForm.prev();
+                      }}
+                    >
+                      Back
+                    </button>
                   <button
                     type="button"
-                    className="bg-blue-950 text-white px-6 py-2 rounded-md cursor-pointer"
+                    className=" font-semibold px-12 py-3 text-white rounded-md cursor-pointer text-[20px] bg-gradient-to-r from-blue-800 to-indigo-900"
+                    style={{backgroundColor: colors.mainButtonNext}}
                     onClick={() => {
                         MultiStepForm.update("contact_socials_twitter", document.getElementById("twitter").value);
                         MultiStepForm.update("contact_socials_instagram", document.getElementById("instagram").value);
@@ -456,15 +489,22 @@ const AddJobRightProgressBar = () => {
                 <p className="text-gray-500 text-2xl">Anything you would like to review before moving on?</p>
                 <div className="flex gap-4 mt-4 justify-between text-lg">
                   <button
-                    type="button"
-                    className="bg-gray-400 text-white px-8 py-3 rounded-md cursor-pointer"
-                    onClick={() => MultiStepForm.prev()}
-                  >
-                    Go Back
-                  </button>
+                      type="button"
+                      className={`
+                        text-black font-semibold px-12 py-3 rounded-md cursor-pointer text-[22px]
+                        bg-gradient-to-r from-blue-300 to-indigo-300
+                        border-4
+                      `}
+                      onClick={() => {
+                        MultiStepForm.prev();
+                      }}
+                    >
+                      Go Back
+                    </button>
                   <button
                     type="submit"
-                    className="bg-blue-950 text-white px-6 py-2 rounded-md cursor-pointer"
+                    className=" font-semibold px-12 py-3 text-white rounded-md cursor-pointer text-[20px] bg-gradient-to-r from-blue-800 to-indigo-900"
+                    style={{backgroundColor: colors.mainButtonNext}}
                     onClick={(e) => {
                       handleFinish(e);
                     }}

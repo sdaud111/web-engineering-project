@@ -1,24 +1,29 @@
-import {FaCircle, FaCheck} from "react-icons/fa";
+import { FaCircle, FaCheck } from "react-icons/fa";
+import { colors } from "../nav/colors";
 
 const StepBullet = ({ status }) => {
     const base = "w-10 h-10 flex items-center justify-center rounded-full border-4";
+
     if (status === "done") {
         return (
-            <div className={`${base} border-blue-400 text-blue-400`}>
-                <FaCheck className="text-lg" />
+            <div className={`${base}`} 
+            style={{color: colors.mainProgressSteps, borderStyle: "solid", borderWidth: "4px", borderColor: colors.mainProgressSteps}}>
+                <FaCheck className="text-lg" style={{color: colors.mainProgressSteps}}/>
             </div>
         );
     }
+
     if (status === "active") {
         return (
-            <div className={`${base} border-blue-400 bg-blue-400`}>
-                <FaCircle className="text-white text-lg" />
+            <div className={`${base}`} style={{backgroundColor: colors.mainProgressSteps, borderStyle: "solid", borderWidth: "4px", borderColor: colors.mainProgressSteps}}>
+                <FaCircle className="text-lg" style={{color: colors.mainBgColor}} />
             </div>
         );
     }
+
     return (
-        <div className={`${base} border-gray-300 text-gray-300`}>
-            <FaCircle className="text-gray-300 text-lg" />
+        <div className={`${base}`} style={{color: colors.mainProgressSteps, borderStyle: "solid", borderWidth: "4px", borderColor: colors.mainProgressSteps}}>
+            <FaCircle className="text-lg" style={{color: colors.mainProgressSteps}} />
         </div>
     );
 };

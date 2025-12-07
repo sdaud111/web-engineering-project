@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import MultiStepForm from "../../../../classes/MultiStepForm";
 import StepItem from "../step/StepItem";
+import { colors } from "../nav/colors";
 
 const AddJobLeftProgressBar = () => {
   const [state, setState] = useState(MultiStepForm.getState());
@@ -21,8 +22,8 @@ const AddJobLeftProgressBar = () => {
 
   return (
     <div className="w-[30%] h-full flex flex-col gap-16 px-6 py-12">
-      <h1 className="text-4xl font-bold">Progress</h1>
-      <div className="flex flex-col gap-4">
+      <h1 className="text-4xl font-bold" style={{color: colors.mainMainHeadings}}>Progress</h1>
+      <div className="flex flex-col gap-6">
         {displayedSteps.map((s, i) => (
           <StepItem key={i} step={s} isActive={i === currentStep} />
         ))}

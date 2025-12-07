@@ -24,6 +24,7 @@ import Signup from "./Pages/Signup.jsx";
 import Login2 from "./Pages/Login.jsx";
 import AddJob from "./Pages/AddJob.jsx";
 import SubmitJob from './Pages/SubmitJob.jsx'
+import ProtectedPages from './Layout/ProtectedPages.jsx'
 
 const App = () => {
   const router = createBrowserRouter(
@@ -38,15 +39,21 @@ const App = () => {
           <Route path="add-job2" element={<AddJob />} />
           <Route path="submit-job" element={<SubmitJob/>}/>
 
+
         {/* Protected Routes */}
-        <Route
-          path="/"
+        <Route 
+          path="/" 
           element={
-            <PrivateRoute>
-              <Mainlayout />
-            </PrivateRoute>
-          }
+            localStorage.getItem("isAuth") ? (
+              <PrivateRoute>
+                <ProtectedPages />
+              </PrivateRoute>
+            ) : (
+              <Navigate to="/landing" replace />
+            )
+          } 
         >
+
           <Route index element={<HomePage />} />
           <Route path="jobs" element={<JobsPage />} />
           <Route path="add-job" element={<AddJobPage />} />

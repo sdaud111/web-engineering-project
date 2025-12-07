@@ -11,11 +11,16 @@ const LeftSidebar = () => {
         try {
             const res = await axios.post("http://localhost:5000/login", {
                 email,
-                password
-            });
-
-            if (res.data.message === "Login OK") {
-                window.location.href = "http://localhost:3000";
+                password,
+                });
+            const data = await res.data;
+            if(data.err) {
+                console.log(data.err);
+            }
+            else{
+                localStorage.setItem("isAuth", true);
+                localStorage.setItem("user", JSON.stringify(data));
+                window.location.href="/protected";
             }
         } catch (err) {
             console.log(err);

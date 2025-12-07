@@ -1,7 +1,9 @@
+import { colors } from "../nav/colors";
+
 const SelectInput = ({ id, label, options = [], value, onChange }) => {
   return (
     <div className="flex gap-12 items-center">
-      <label htmlFor={id} className="text-2xl font-semibold text-gray-500 w-1/4">
+      <label htmlFor={id} className="text-2xl font-semibold w-1/4" style={{color: colors.mainLabelsText}}>
         {label}
       </label>
 
@@ -12,7 +14,7 @@ const SelectInput = ({ id, label, options = [], value, onChange }) => {
         onChange={(e) => onChange(e.target.value)}
         className={`
           border w-1/2 text-2xl px-6 py-4 rounded-md
-          ${value ? "text-black border-blue-400" : "text-gray-500 border-gray-300"}
+          ${value ? "text-black border-[#4338CA]" : "text-gray-500 border-[#1E1B4B]"}
         `}
       >
         <option value="" disabled>Select {label}</option>

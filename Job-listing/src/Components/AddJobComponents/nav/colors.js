@@ -1,0 +1,22 @@
+export const colors = {
+    leftNavBgColor: "#3674B5",
+    topNavBgColor: "#3674B5",
+    bgColor: "#3674B5",
+    linksColor: "#ffffff",
+    linkSectionsColor: "#E5E7EB",
+    profileNameColor: "#ffffff",
+    profileUserTypeColor: "#ffffff",
+    topNavColor: "#ffffff",
+    mainBgColor: "#d3eef7ff",
+    mainMainHeadings: "#1E1B4B",
+    mainProgressSteps: "#4338CA",
+    mainProgressStepDone: "#1E1B4B",
+    mainProgressStepActive: "#4338CA",
+    mainProgressStepPending: "#1E1B4B",
+    mainProgressStepSubItems: "#1E1B4B",
+    mainLabelsText: "#1E1B4B",
+    mainInputsBorderNotDone: "#1E1B4B",
+    mainInputsBorderDone: "#ffffff",
+    mainButtonPrev: "#000000",
+    mainButtonNext: "#312E81"
+}

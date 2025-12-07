@@ -4,7 +4,6 @@ const Hero = () => {
   // Hero component with background image from Unsplash
   return (
     <section className="bg-[#3674B5] py-20 mb-4 relative overflow-hidden">
-      {/* Background Image */}
       <div className="absolute top-0 left-0 w-full h-full">
         <img 
           src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb" 
