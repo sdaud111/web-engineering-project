@@ -9,7 +9,7 @@ const LeftSidebar = () => {
 
     const handleLogin = async () => {
         try {
-            const res = await axios.post("http://localhost:5000/login", {
+            const res = await axios.post("http://localhost:5000/api/auth/login", {
                 email,
                 password,
                 });

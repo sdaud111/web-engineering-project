@@ -25,11 +25,12 @@ const RightSidebar = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const userType = "employer";
+   const [userType, setUserType] = useState("applicant");
 
     const handleSignup = async () => {
         try {
-            const res = await axios.post("http://localhost:5000/signup", {
+            console.log("Sending signup request:", { name, email, password, userType });
+            const res = await axios.post("http://localhost:5000/api/auth/signup", {
                 name,
                 email,
                 password, 
@@ -37,7 +38,7 @@ const RightSidebar = () => {
             });
 
             // Redirect to login page if signup successful
-            if (res.data.message === "Signup OK") {
+            if (res.data.message === "Signup success") {
                 window.location.href = "http://localhost:3000/login2";
             }
         } catch (err) {
@@ -83,6 +84,17 @@ const RightSidebar = () => {
                             className="w-full h-16 bg-gray-100 outline-none border-none text-[20px] font-semibold"
                         />
                     </div>
+                    <div className="w-full flex flex-col gap-4">
+  <label className="font-semibold text-lg">Account Type</label>
+  <select
+    value={userType}
+    onChange={(e) => setUserType(e.target.value)}
+    className="w-full h-16 bg-gray-100 rounded-md px-3 text-[18px]"
+  >
+    <option value="applicant">Applicant</option>
+    <option value="employer">Employer</option>
+  </select>
+</div>
                     <p className={"font-semibold text-gray-600 text-lg"}>
                         Forgot password? <a className={"text-blue-950 font-bold cursor-pointer hover:underline"}>Click here</a>
                     </p>
