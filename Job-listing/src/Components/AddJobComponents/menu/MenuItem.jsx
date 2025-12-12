@@ -6,7 +6,7 @@ const MenuItem = ({ Icon, label, collapsed, color , onClick}) => {
         className={`cursor-pointer p-2 flex items-center gap-4 
                     transition-colors duration-200 
                     hover:text-blue-400 ${collapsed ? 'hover:scale-101' : ''}`}
-        style={{color: color}}
+        style={{color: color, opacity: "0.8"}}
         onClick={onClick}
         >
             <Icon className="text-[26px]" />

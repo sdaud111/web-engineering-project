@@ -9,25 +9,19 @@ const ProtectedPages = () => {
 
   return (
     <main
-      className={`bg-[${colors.bgColor}] min-h-screen w-full font-[Nunito] grid grid-cols-16 grid-rows-12`}
+      className={`h-screen w-full font-[Nunito] grid grid-cols-16 grid-rows-12`}
+      style={{backgroundColor: colors.bgColor}}
     >
-      {/* Side Navigation */}
-      <LeftNav collapsed={collapsed} />
-
-      {/* Top Navigation */}
-      <TopNav
+      <LeftNav collapsed={collapsed} setCollapsed={setCollapsed} />
+      {/* <TopNav
         collapsed={collapsed}
-        setCollapsed={setCollapsed}
-      />
-
-      {/* Main Content Area */}
+      /> */}
       <section
         className={`${
           !collapsed ? "col-span-13" : "col-span-15"
-        } col-span-13 row-span-11 rounded-tl-4xl flex justify-center items-start p-12`}
+        } overflow-y-auto col-span-13 row-span-12 overflow-hidden flex justify-center items-start`}
         style={{ backgroundColor: colors.mainBgColor }}
       >
-        {/* 🔥 Router injects the page here */}
         <div className="w-full h-full">
           <Outlet />
         </div>

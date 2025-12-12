@@ -27,6 +27,7 @@ import AddJob from "./Pages/AddJob.jsx";
 import SubmitJob from './Pages/SubmitJob.jsx';
 import ProtectedPages from './Layout/ProtectedPages.jsx';
 import MessagesPage from './Pages/MessagesPage.jsx';
+import ApplicantProfile from './Pages/ApplicantProfile.jsx';
 
 const App = () => {
   const isAuth = localStorage.getItem("isAuth");
@@ -66,6 +67,7 @@ const App = () => {
 
           <Route path="add-job" element={<AddJobPage />} />
           <Route path="ai-search" element={<AISearchPage />} />
+          <Route path="/applicant-profile" element={<ApplicantProfile />} />
           <Route path="profile" element={<ProfilePage />} />
           <Route path="/messages" element={<MessagesPage />} />
           <Route path="my-applications" element={<MyApplicationsPage />} />
