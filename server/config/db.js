@@ -2,10 +2,11 @@ const mongoose = require("mongoose");
 
 const connectDB = async () => {
   try {
-    await mongoose.connect("mongodb://localhost:27017/web-engineering-project");
-    console.log("MongoDB Connected");
+    const mongoURI = process.env.MONGODB_URI || "mongodb://localhost:27017/web-engineering-project";
+    await mongoose.connect(mongoURI);
+    console.log("✅ MongoDB Connected:", mongoURI.includes("mongodb.net") ? "Atlas" : "Local");
   } catch (error) {
-    console.error("Mongo Error:", error.message);
+    console.error("❌ MongoDB Error:", error.message);
     process.exit(1);
   }
 };

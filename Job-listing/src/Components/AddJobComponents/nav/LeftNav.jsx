@@ -57,6 +57,7 @@ const LeftNav = ({ collapsed, setCollapsed, mobileMenuOpen, setMobileMenuOpen })
             {/* <MenuHeading text="Find Jobs" collapsed={collapsed} color={colors.linkSectionsColor} /> */}
             <MenuItem Icon={FaSearchPlus} label="Jobs" collapsed={collapsed} color={colors.linksColor} onClick={() => handleNavClick(() => navigate("/jobs"))} />
             <MenuItem Icon={FaClipboard} label="My Applications" collapsed={collapsed} color={colors.linksColor} onClick={() => handleNavClick(() => navigate("/my-applications"))} />
+            <MenuItem Icon={FaRobot} label="AI search" collapsed={collapsed} color={colors.linksColor} onClick={() => handleNavClick(() => navigate("/ai-search"))} />
 
             {/* <MenuHeading text="Explore" collapsed={collapsed} color={colors.linkSectionsColor} /> */}
             <MenuItem Icon={FaList} label="My Feed" collapsed={collapsed} color={colors.linksColor} onClick={() => handleNavClick(() => navigate("/feed"))} />
@@ -79,7 +80,6 @@ const LeftNav = ({ collapsed, setCollapsed, mobileMenuOpen, setMobileMenuOpen })
 
             {/* <MenuHeading text="Search" collapsed={collapsed} color={colors.linkSectionsColor} /> */}
             <MenuItem Icon={FaEye} label="Find talent" collapsed={collapsed} color={colors.linksColor} onClick={() => handleNavClick(() => navigate("/employer/find-talent"))} />
-            <MenuItem Icon={FaRobot} label="AI search" collapsed={collapsed} color={colors.linksColor} onClick={() => handleNavClick(() => navigate("/ai-search"))} />
             
             <MenuItem Icon={FaArrowAltCircleRight} label="Sign Out" collapsed={collapsed} color={colors.linksColor} onClick={() => handleNavClick(handleLogOut)} />
           </>

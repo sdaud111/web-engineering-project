@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const connectDB = require("./config/db");
@@ -22,8 +23,10 @@ app.use("/api/jobs", require("./routes/jobRoutes"));
 app.use("/api/messages", require("./routes/messageRoutes"));
 app.use("/api/connections", require("./routes/connectionRoutes"));
 app.use("/api/applications", require("./routes/applicationRoutes"));
+app.use("/api/ai", require("./routes/aiSearchRoutes"));
 
 // Start Server
-app.listen(5000, () => {
-  console.log("Server running on port 5000");
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
