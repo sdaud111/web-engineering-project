@@ -42,10 +42,20 @@ const Navbar2 = ({
                 style={{ color: logoColor }}
             >
                 <div className="flex justify-between items-center w-full">
-                    <div className="flex items-center gap-3 fjalla">
-                        <img src="/logo.png" width="40" height="30" alt="logo" />
-                        <span className="text-4xl font-bold tracking-wider">JOBCONNECT</span>
-                    </div>
+<div className="flex items-center gap-4 fjalla group">
+                        <div className="relative">
+                          <div className="absolute inset-0 bg-gradient-to-r from-[#d4a574] to-[#1a2f4e] rounded-xl blur opacity-30 group-hover:opacity-50 transition duration-300"></div>
+                          <div className="relative h-14 w-14 bg-gradient-to-br from-[#1a2f4e] to-[#4a5f7f] rounded-xl flex items-center justify-center shadow-xl group-hover:scale-105 transition duration-300">
+                            <svg className="w-8 h-8 text-[#d4a574]" fill="currentColor" viewBox="0 0 20 20">
+                              <path fillRule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clipRule="evenodd" />
+                              <path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z" />
+                            </svg>
+                          </div>
+                        </div>
+                        <span className="text-4xl font-extrabold tracking-tight" style={{ color: logoColor }}>
+                          Job<span className="text-[#d4a574]">-</span>Connect
+                                                </span>
+                                        </div>
 
                     <button
                         onClick={() => setMenuOpen(!menuOpen)}

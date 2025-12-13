@@ -6,6 +6,7 @@ import { FiMenu } from "react-icons/fi";
 import MenuItem from "../menu/MenuItem";
 import { colors } from "./colors";
 import { useNavigate } from "react-router-dom";
+import logo from "../../../assets/logo.png";
 
 const LeftNav = ({ collapsed, setCollapsed, mobileMenuOpen, setMobileMenuOpen }) => {
   const navigate = useNavigate();
@@ -33,18 +34,36 @@ const LeftNav = ({ collapsed, setCollapsed, mobileMenuOpen, setMobileMenuOpen })
       }`}
       style={{ backgroundColor: colors.leftNavBgColor, boxShadow: "4px 0 10px rgba(0,0,0,0.15)" }}
     >
-        <div className="cursor-pointer p-4 flex items-center justify-center gap-4 bg-white w-fit rounded-full mx-auto">
-        <button
-          className="cursor-pointer rounded-full"
-          onClick={() => setCollapsed(!collapsed)}
-        >
-          {collapsed ? (
-            <FiMenu className="text-[30px] text-[#1a2f4e] font-extrabold" />
-          ) : (
-            <FaArrowLeft className="text-[30px] text-[#1a2f4e] font-extrabold" />
-          )}
-        </button>
-      </div>
+        <div className="flex flex-col items-center gap-4 mb-6">
+          <div className="flex items-center gap-3 group">
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-[#d4a574] to-[#f5f7fa] rounded-xl blur opacity-40 group-hover:opacity-60 transition duration-300"></div>
+              <div className="relative h-14 w-14 bg-gradient-to-br from-[#f5f7fa] to-[#d4a574] rounded-xl flex items-center justify-center shadow-lg group-hover:scale-105 transition duration-300">
+                <svg className="w-8 h-8 text-[#1a2f4e]" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clipRule="evenodd" />
+                  <path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z" />
+                </svg>
+              </div>
+            </div>
+            {!collapsed && (
+              <span className="text-2xl font-extrabold tracking-tight text-[#f5f7fa]">
+                Job<span className="text-[#d4a574]">-</span>Connect
+              </span>
+            )}
+          </div>
+          <div className="cursor-pointer p-3 flex items-center justify-center gap-4 bg-white w-fit rounded-full mx-auto">
+            <button
+              className="cursor-pointer rounded-full"
+              onClick={() => setCollapsed(!collapsed)}
+            >
+              {collapsed ? (
+                <FiMenu className="text-[26px] text-[#1a2f4e] font-extrabold" />
+              ) : (
+                <FaArrowLeft className="text-[26px] text-[#1a2f4e] font-extrabold" />
+              )}
+            </button>
+          </div>
+        </div>
 
       <div className="flex flex-col gap-10 ml-8 mt-8">
         {isApplicant && (
