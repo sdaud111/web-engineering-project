@@ -20,6 +20,7 @@ app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/users", require("./routes/userRoutes"));
 app.use("/api/jobs", require("./routes/jobRoutes"));
 app.use("/api/messages", require("./routes/messageRoutes"));
+app.use("/api/connections", require("./routes/connectionRoutes"));
 app.use("/api/applications", require("./routes/applicationRoutes"));
 
 // Start Server

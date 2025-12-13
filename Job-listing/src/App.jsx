@@ -30,6 +30,7 @@ import MessagesPage from './Pages/MessagesPage.jsx';
 import ApplicantProfile from './Pages/ApplicantProfile.jsx';
 import JobApplicationsPage from './Pages/JobApplicationsPage.jsx';
 import ResponsesPage from './Pages/ResponsesPage.jsx';
+import FeedPage from './Pages/FeedPage.jsx';
 
 const App = () => {
   const isAuth = localStorage.getItem("isAuth");
@@ -69,9 +70,10 @@ const App = () => {
 
           <Route path="add-job" element={<AddJobPage />} />
           <Route path="ai-search" element={<AISearchPage />} />
-          <Route path="/applicant-profile" element={<ApplicantProfile />} />
+          <Route path="applicant-profile" element={<ApplicantProfile />} />
           <Route path="profile" element={<ProfilePage />} />
-          <Route path="/messages" element={<MessagesPage />} />
+          <Route path="messages" element={<MessagesPage />} />
+          <Route path="feed" element={<FeedPage />} />
           <Route path="my-applications" element={<MyApplicationsPage />} />
           <Route path="employer/find-talent" element={<AICandidateSearchPage />} />
           <Route path="employer/dashboard" element={<EmployerDashboard />} />

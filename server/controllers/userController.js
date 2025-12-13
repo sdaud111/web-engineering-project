@@ -62,6 +62,17 @@ exports.getAllApplicants = async (req, res) => {
   }
 };
 
+// Get all users except the logged-in user (for messaging)
+exports.getAllUsers = async (req, res) => {
+  try {
+    const { excludeId } = req.params;
+    const users = await User.find({ _id: { $ne: excludeId } }).select("name email profilePhoto userType");
+    res.json(users);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
 
 // Upload resume
 exports.uploadResume = async (req, res) => {
