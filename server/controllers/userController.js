@@ -12,7 +12,7 @@ exports.getUserById = async (req, res) => {
   }
 };
 
-// Update user (e.g., skills)
+// Update user profile (including education, experience, etc.)
 exports.updateUser = async (req, res) => {
   try {
     const updates = req.body;
@@ -20,12 +20,33 @@ exports.updateUser = async (req, res) => {
     const user = await User.findByIdAndUpdate(
       req.params.id,
       { $set: updates },
-      { new: true }
+      { new: true, runValidators: true }
     ).select("-password");
 
     if (!user) return res.status(404).json({ message: "User not found" });
 
     res.json(user);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+// Upload profile photo
+exports.uploadProfilePhoto = async (req, res) => {
+  try {
+    if (!req.file) return res.status(400).json({ message: "No file uploaded" });
+
+    const profilePhotoPath = path.join("uploads/profiles", req.file.filename);
+    
+    const user = await User.findByIdAndUpdate(
+      req.params.id,
+      { profilePhoto: profilePhotoPath },
+      { new: true }
+    ).select("-password");
+
+    if (!user) return res.status(404).json({ message: "User not found" });
+
+    res.json({ profilePhoto: user.profilePhoto, user });
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
