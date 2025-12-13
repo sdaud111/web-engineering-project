@@ -1,28 +1,77 @@
-import React, { useState } from 'react';
-import { FaClipboardList, FaClock, FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
+import React, { useState, useEffect } from 'react';
+import { FaClipboardList, FaClock, FaCheckCircle, FaTimesCircle, FaFileDownload } from 'react-icons/fa';
+import axios from 'axios';
 
 const MyApplicationsPage = () => {
-  const [applications, setApplications] = useState([
-    { id: 1, jobTitle: 'Senior Frontend Developer', company: 'Tech Solutions Inc.', status: 'Under Review' },
-    { id: 2, jobTitle: 'UI/UX Designer', company: 'Creative Minds LLC', status: 'Applied' },
-    { id: 3, jobTitle: 'Node.js Backend Engineer', company: 'Server-Side Systems', status: 'Interview Scheduled' },
-    { id: 4, jobTitle: 'DevOps Specialist', company: 'CloudNet', status: 'Rejected' },
-  ]);
+  const [applications, setApplications] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+
+  const user = JSON.parse(localStorage.getItem("user"));
+  const userId = user?.user?._id;
+
+  useEffect(() => {
+    const fetchApplications = async () => {
+      try {
+        if (!userId) {
+          setError("You must be logged in to view your applications");
+          setLoading(false);
+          return;
+        }
+
+        const response = await axios.get(`http://localhost:5000/api/applications/user/${userId}`);
+        setApplications(response.data.applications || []);
+        setLoading(false);
+      } catch (err) {
+        console.error(err);
+        setError("Failed to load applications");
+        setLoading(false);
+      }
+    };
+
+    fetchApplications();
+  }, [userId]);
 
   const getStatusIcon = (status) => {
     switch (status) {
-      case 'Applied':
+      case 'pending':
         return <FaClock className="text-blue-500" />;
-      case 'Under Review':
-        return <FaClipboardList className="text-yellow-500" />;
-      case 'Interview Scheduled':
+      case 'accepted':
         return <FaCheckCircle className="text-green-500" />;
-      case 'Rejected':
+      case 'rejected':
         return <FaTimesCircle className="text-red-500" />;
+      case 'shortlisted':
+        return <FaClipboardList className="text-yellow-500" />;
       default:
-        return <FaClipboardList />;
+        return <FaClock className="text-gray-500" />;
     }
   };
+
+  const getStatusLabel = (status) => {
+    switch (status) {
+      case 'pending': return 'Pending Review';
+      case 'accepted': return 'Accepted';
+      case 'rejected': return 'Rejected';
+      case 'shortlisted': return 'Shortlisted';
+      default: return status;
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <p className="text-gray-500 text-xl">Loading your applications...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <p className="text-red-500 text-xl">{error}</p>
+      </div>
+    );
+  }
 
   return (
     <section className="bg-[#D1F8EF] bg-opacity-50 min-h-screen">
@@ -36,22 +85,52 @@ const MyApplicationsPage = () => {
           </p>
         </div>
 
-        <div className="bg-white p-6 rounded-lg shadow-lg">
-          <div className="space-y-4">
-            {applications.map(app => (
-              <div key={app.id} className="p-4 border border-[#A1E3F9] rounded-lg flex justify-between items-center hover:shadow-md transition-shadow">
-                <div>
-                  <h3 className="text-xl font-bold text-[#3674B5]">{app.jobTitle}</h3>
-                  <p className="text-md text-[#578FCA]">{app.company}</p>
-                </div>
-                <div className="flex items-center space-x-3">
-                  {getStatusIcon(app.status)}
-                  <span className="font-semibold text-[#3674B5]">{app.status}</span>
-                </div>
-              </div>
-            ))}
+        {applications.length === 0 ? (
+          <div className="bg-white p-12 rounded-lg shadow-lg text-center">
+            <p className="text-gray-500 text-lg mb-4">You haven't applied to any jobs yet.</p>
+            <a href="/jobs" className="text-[#3674B5] font-bold hover:underline">
+              Browse Jobs →
+            </a>
           </div>
-        </div>
+        ) : (
+          <div className="bg-white p-6 rounded-lg shadow-lg">
+            <p className="text-[#578FCA] mb-4">Total Applications: {applications.length}</p>
+            <div className="space-y-4">
+              {applications.map(app => (
+                <div key={app._id} className="p-4 border border-[#A1E3F9] rounded-lg hover:shadow-md transition-shadow">
+                  <div className="flex justify-between items-start mb-3">
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-[#3674B5]">{app.job?.jobName || 'Job Title'}</h3>
+                      <p className="text-md text-[#578FCA]">{app.job?.city} • {app.job?.jobType}</p>
+                      <p className="text-sm text-gray-500 mt-1">Applied: {new Date(app.createdAt).toLocaleDateString()}</p>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      {getStatusIcon(app.status)}
+                      <span className="font-semibold text-[#3674B5]">{getStatusLabel(app.status)}</span>
+                    </div>
+                  </div>
+                  
+                  <div className="border-t pt-3 mt-3">
+                    <p className="text-sm text-gray-600 mb-2"><strong>Cover Letter:</strong></p>
+                    <p className="text-sm text-gray-700">{app.coverLetter?.substring(0, 150)}...</p>
+                    
+                    {app.resumePath && (
+                      <a 
+                        href={`http://localhost:5000/${app.resumePath}`} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center mt-3 text-[#3674B5] hover:underline"
+                      >
+                        <FaFileDownload className="mr-1" />
+                        View My Resume
+                      </a>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

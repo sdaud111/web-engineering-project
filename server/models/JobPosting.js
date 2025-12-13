@@ -23,6 +23,10 @@ const JobPostingSchema = new mongoose.Schema({
     linkedIn: String,
     reddit: String,
     facebook: String
+  },
+  postedBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User"
   }
 }, { timestamps: true });
 

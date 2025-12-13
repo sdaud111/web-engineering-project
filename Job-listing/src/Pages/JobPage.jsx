@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import { FaArrowLeft, FaMapMarker } from 'react-icons/fa';
 import { useLoaderData, Link, useNavigate } from 'react-router-dom';
+import ApplyJobForm from '../Components/ApplyJobForm';
 
 const JobPage = () => {
   const job = useLoaderData();
   const navigate = useNavigate();
   const [deleting, setDeleting] = useState(false);
+
+  // Get user info from localStorage
+  const user = JSON.parse(localStorage.getItem("user"));
+  const userType = user?.user?.userType;
 
   const handleDelete = async () => {
     if (!window.confirm("Are you sure you want to delete this job?")) return;
@@ -53,6 +58,9 @@ const JobPage = () => {
                 <h3 className="text-[#3674B5] text-lg font-bold mb-2">Salary</h3>
                 <p className="mb-4">{job.salary} {job.currency} / Year</p>
               </div>
+
+              {/* Apply for Job Form - Only show to applicants */}
+              {userType === 'applicant' && <ApplyJobForm jobId={job._id} />}
             </main>
 
             <aside className="md:col-span-1">

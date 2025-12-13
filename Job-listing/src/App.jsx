@@ -28,6 +28,8 @@ import SubmitJob from './Pages/SubmitJob.jsx';
 import ProtectedPages from './Layout/ProtectedPages.jsx';
 import MessagesPage from './Pages/MessagesPage.jsx';
 import ApplicantProfile from './Pages/ApplicantProfile.jsx';
+import JobApplicationsPage from './Pages/JobApplicationsPage.jsx';
+import ResponsesPage from './Pages/ResponsesPage.jsx';
 
 const App = () => {
   const isAuth = localStorage.getItem("isAuth");
@@ -73,6 +75,8 @@ const App = () => {
           <Route path="my-applications" element={<MyApplicationsPage />} />
           <Route path="employer/find-talent" element={<AICandidateSearchPage />} />
           <Route path="employer/dashboard" element={<EmployerDashboard />} />
+          <Route path="jobs/:jobId/applications" element={<JobApplicationsPage />} />
+          <Route path="responses" element={<ResponsesPage />} />
 
           {/* 404 for protected pages */}
           <Route path="*" element={<NotFoundPage />} />
