@@ -121,8 +121,8 @@ const ApplyJobForm = ({ jobId }) => {
   };
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md mt-6 border-l-4 border-[#1a2f4e]">
-      <h3 className="text-2xl font-bold mb-6 text-[#1a2f4e]">Apply For This Job</h3>
+    <div className="bg-white p-4 md:p-6 rounded-lg shadow-md mt-4 md:mt-6 border-l-4 border-[#1a2f4e]">
+      <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-[#1a2f4e]">Apply For This Job</h3>
 
       {success && (
         <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-md mb-4 flex items-center">

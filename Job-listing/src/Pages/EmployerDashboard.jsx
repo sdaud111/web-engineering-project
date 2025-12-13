@@ -29,7 +29,7 @@ const EmployerDashboard = () => {
         </div>
 
         {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-8 md:mb-12">
           <div className="bg-white p-6 rounded-lg shadow-lg flex items-center">
             <FaBriefcase className="text-4xl text-[#1a2f4e] mr-4" />
             <div>

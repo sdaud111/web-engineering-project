@@ -58,7 +58,7 @@ const EmployerJobListings = () => {
   }
 
   return (
-    <section className="bg-[#f5f7fa] bg-opacity-50 px-4 py-10">
+    <section className="bg-[#f5f7fa] bg-opacity-50 px-4 py-6 md:py-10">
       <div className="container-xl lg:container m-auto">
         <h2 className="text-3xl font-bold text-[#1a2f4e] mb-6 text-center">
           My Published Jobs ({jobs.length})
@@ -74,10 +74,10 @@ const EmployerJobListings = () => {
                   <p className="text-gray-600 mb-2">Salary: {job.salary} {job.currency}</p>
                   <p className="text-sm text-gray-500">Posted: {new Date(job.createdAt).toLocaleDateString()}</p>
                 </div>
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col sm:flex-row md:flex-col gap-2">
                   <Link
                     to={`/jobs/${job._id}/applications`}
-                    className="flex items-center gap-2 bg-[#1a2f4e] hover:bg-[#4a5f7f] text-white px-4 py-2 rounded-md transition-colors text-sm"
+                    className="flex items-center justify-center gap-2 bg-[#1a2f4e] hover:bg-[#4a5f7f] text-white px-3 md:px-4 py-2 rounded-md transition-colors text-xs md:text-sm"
                   >
                     <FaEye /> View Applications
                   </Link>

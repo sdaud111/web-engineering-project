@@ -7,7 +7,7 @@ import MenuItem from "../menu/MenuItem";
 import { colors } from "./colors";
 import { useNavigate } from "react-router-dom";
 
-const LeftNav = ({ collapsed, setCollapsed }) => {
+const LeftNav = ({ collapsed, setCollapsed, mobileMenuOpen, setMobileMenuOpen }) => {
   const navigate = useNavigate();
 
   const user = JSON.parse(localStorage.getItem("user")).user;
@@ -21,12 +21,17 @@ const LeftNav = ({ collapsed, setCollapsed }) => {
     window.location.href = "/login2";
   }
 
+  const handleNavClick = (action) => {
+    action();
+    if (setMobileMenuOpen) setMobileMenuOpen(false);
+  };
+
   return (
     <nav
-      className={`row-span-12 rounded-br-lg p-4 transition-all duration-600 flex flex-col justify-around ${
-        collapsed ? "col-span-1" : "col-span-3"
+      className={`h-full w-64 md:w-auto md:min-w-[250px] rounded-br-lg p-4 transition-all duration-300 flex flex-col justify-between shadow-lg ${
+        collapsed ? "md:w-20" : "md:w-64"
       }`}
-      style={{ backgroundColor: colors.leftNavBgColor }}
+      style={{ backgroundColor: colors.leftNavBgColor, boxShadow: "4px 0 10px rgba(0,0,0,0.15)" }}
     >
         <div className="cursor-pointer p-4 flex items-center justify-center gap-4 bg-white w-fit rounded-full mx-auto">
         <button
@@ -45,18 +50,18 @@ const LeftNav = ({ collapsed, setCollapsed }) => {
         {isApplicant && (
           <>
             {/* <MenuHeading text="Personal" collapsed={collapsed} color={colors.linkSectionsColor} /> */}
-            <MenuItem Icon={FaHome} label="Home" collapsed={collapsed} color={colors.linksColor} onClick={() => navigate("/")} />
-            <MenuItem Icon={FaUser} label="Profile" collapsed={collapsed} color={colors.linksColor} onClick={() => navigate("/applicant-profile")} />
-            <MenuItem Icon={FaComment} label="Messages" collapsed={collapsed} color={colors.linksColor} onClick={() => navigate("/messages")} />
+            <MenuItem Icon={FaHome} label="Home" collapsed={collapsed} color={colors.linksColor} onClick={() => handleNavClick(() => navigate("/"))} />
+            <MenuItem Icon={FaUser} label="Profile" collapsed={collapsed} color={colors.linksColor} onClick={() => handleNavClick(() => navigate("/applicant-profile"))} />
+            <MenuItem Icon={FaComment} label="Messages" collapsed={collapsed} color={colors.linksColor} onClick={() => handleNavClick(() => navigate("/messages"))} />
 
             {/* <MenuHeading text="Find Jobs" collapsed={collapsed} color={colors.linkSectionsColor} /> */}
-            <MenuItem Icon={FaSearchPlus} label="Jobs" collapsed={collapsed} color={colors.linksColor} onClick={() => navigate("/jobs")} />
-            <MenuItem Icon={FaClipboard} label="My Applications" collapsed={collapsed} color={colors.linksColor} onClick={() => navigate("/my-applications")} />
+            <MenuItem Icon={FaSearchPlus} label="Jobs" collapsed={collapsed} color={colors.linksColor} onClick={() => handleNavClick(() => navigate("/jobs"))} />
+            <MenuItem Icon={FaClipboard} label="My Applications" collapsed={collapsed} color={colors.linksColor} onClick={() => handleNavClick(() => navigate("/my-applications"))} />
 
             {/* <MenuHeading text="Explore" collapsed={collapsed} color={colors.linkSectionsColor} /> */}
-            <MenuItem Icon={FaList} label="My Feed" collapsed={collapsed} color={colors.linksColor} onClick={() => navigate("/feed")} />
+            <MenuItem Icon={FaList} label="My Feed" collapsed={collapsed} color={colors.linksColor} onClick={() => handleNavClick(() => navigate("/feed"))} />
 
-            <MenuItem Icon={FaArrowAltCircleRight} label="Sign Out" collapsed={collapsed} color={colors.linksColor} onClick={handleLogOut} />
+            <MenuItem Icon={FaArrowAltCircleRight} label="Sign Out" collapsed={collapsed} color={colors.linksColor} onClick={() => handleNavClick(handleLogOut)} />
           </>
         )}
 
@@ -64,16 +69,16 @@ const LeftNav = ({ collapsed, setCollapsed }) => {
         {isEmployer && (
           <>
             {/* <MenuHeading text="Company Info" collapsed={collapsed} color={colors.linkSectionsColor} /> */}
-            <MenuItem Icon={FaUser} label="Profile" collapsed={collapsed} color={colors.linksColor} onClick={() => navigate("/profile")} />
+            <MenuItem Icon={FaUser} label="Profile" collapsed={collapsed} color={colors.linksColor} onClick={() => handleNavClick(() => navigate("/profile"))} />
 
             {/* <MenuHeading text="Jobs" collapsed={collapsed} color={colors.linkSectionsColor} /> */}
-            <MenuItem Icon={FaPlusCircle} label="Add Job" collapsed={collapsed} color={colors.linksColor} onClick={() => navigate("/add-job")} />
-            <MenuItem Icon={FaPlusCircle} label="Published Jobs" collapsed={collapsed} color={colors.linksColor} onClick={() => navigate("/jobs")} />
-            <MenuItem Icon={FaPlusCircle} label="Responses" collapsed={collapsed} color={colors.linksColor} onClick={() => navigate("/responses")} />
+            <MenuItem Icon={FaPlusCircle} label="Add Job" collapsed={collapsed} color={colors.linksColor} onClick={() => handleNavClick(() => navigate("/add-job"))} />
+            <MenuItem Icon={FaPlusCircle} label="Published Jobs" collapsed={collapsed} color={colors.linksColor} onClick={() => handleNavClick(() => navigate("/jobs"))} />
+            <MenuItem Icon={FaPlusCircle} label="Responses" collapsed={collapsed} color={colors.linksColor} onClick={() => handleNavClick(() => navigate("/responses"))} />
 
             {/* <MenuHeading text="Search" collapsed={collapsed} color={colors.linkSectionsColor} /> */}
-            <MenuItem Icon={FaEye} label="Find talent" collapsed={collapsed} color={colors.linksColor} onClick={() => navigate("/employer/find-talent")} />
-            <MenuItem Icon={FaRobot} label="AI search" collapsed={collapsed} color={colors.linksColor} onClick={() => navigate("/ai-search")} />
+            <MenuItem Icon={FaEye} label="Find talent" collapsed={collapsed} color={colors.linksColor} onClick={() => handleNavClick(() => navigate("/employer/find-talent"))} />
+            <MenuItem Icon={FaRobot} label="AI search" collapsed={collapsed} color={colors.linksColor} onClick={() => handleNavClick(() => navigate("/ai-search"))} />
           </>
         )}
 

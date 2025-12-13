@@ -64,8 +64,8 @@ const JobApplicationsPage = () => {
   }
 
   return (
-    <section className="bg-[#f5f7fa] bg-opacity-50 min-h-screen py-10">
-      <div className="container m-auto max-w-6xl px-6">
+    <section className="bg-[#f5f7fa] bg-opacity-50 min-h-screen py-6 md:py-10">
+      <div className="container m-auto max-w-6xl px-4 md:px-6">
         {/* Header */}
         <div className="bg-white p-6 rounded-lg shadow-md mb-6">
           <h1 className="text-3xl font-bold text-[#1a2f4e] mb-2">
@@ -91,10 +91,10 @@ const JobApplicationsPage = () => {
                     <h3 className="text-2xl font-bold text-[#1a2f4e]">{app.applicantName}</h3>
                     <p className="text-sm text-gray-500">Applied: {new Date(app.createdAt).toLocaleDateString()}</p>
                   </div>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 justify-end">
                     <button
                       onClick={() => updateApplicationStatus(app._id, 'shortlisted')}
-                      className="flex items-center gap-1 bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-2 rounded-md text-sm"
+                      className="flex items-center gap-1 bg-yellow-500 hover:bg-yellow-600 text-white px-2 md:px-3 py-2 rounded-md text-xs md:text-sm"
                     >
                       <FaStar /> Shortlist
                     </button>

@@ -38,8 +38,8 @@ const JobPage = () => {
       </section>
 
       <section className="bg-[#f5f7fa] bg-opacity-50">
-        <div className="container m-auto py-10 px-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="container m-auto py-6 md:py-10 px-4 md:px-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
             <main className="md:col-span-2">
               <div className="bg-white p-6 rounded-lg shadow-md text-center md:text-left border-l-4 border-[#1a2f4e]">
                 <div className="text-[#4a5f7f] mb-4 font-medium">{job.jobType}</div>
@@ -75,7 +75,7 @@ const JobPage = () => {
                 <h3 className="text-xl font-bold mb-6">Manage Job</h3>
                 <Link
                   to={`/jobs/edits/${job._id}`}
-                  className="bg-[#1a2f4e] hover:bg-[#4a5f7f] text-white text-center font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
+                  className="bg-[#1a2f4e] hover:bg-[#4a5f7f] text-white text-center font-bold py-2 px-3 md:px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block text-sm md:text-base"
                 >
                   Edit Job
                 </Link>
