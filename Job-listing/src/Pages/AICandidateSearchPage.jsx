@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { FaSearch, FaUserTie, FaStar } from 'react-icons/fa';
 
 const AICandidateSearchPage = () => {
@@ -6,21 +7,21 @@ const AICandidateSearchPage = () => {
   const [candidates, setCandidates] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSearch = (e) => {
+  const handleSearch = async (e) => {
     e.preventDefault();
     if (!query.trim()) return;
 
     setIsLoading(true);
-    // Simulate an AI search for candidates
-    setTimeout(() => {
-      const mockCandidates = [
-        { id: 1, name: 'Alice Johnson', role: 'Senior React Developer', match: 92, summary: 'Expert in React, 5+ years in fintech.', skills: ['React', 'TypeScript', 'Fintech'] },
-        { id: 2, name: 'Bob Williams', role: 'Full-Stack Engineer', match: 85, summary: 'Strong Node.js and AWS experience.', skills: ['Node.js', 'AWS', 'MongoDB'] },
-        { id: 3, name: 'Charlie Brown', role: 'Junior Developer', match: 78, summary: 'Recent graduate with a passion for clean code.', skills: ['JavaScript', 'HTML', 'CSS'] },
-      ];
-      setCandidates(mockCandidates);
+    try {
+      const base = import.meta.env.VITE_API_BASE || 'http://localhost:5000';
+      const { data } = await axios.post(`${base}/api/ai/search-candidates`, { query });
+      setCandidates(data?.candidates || []);
+    } catch (err) {
+      console.error('Candidate search error', err);
+      setCandidates([]);
+    } finally {
       setIsLoading(false);
-    }, 1500);
+    }
   };
 
   return (
@@ -66,25 +67,30 @@ const AICandidateSearchPage = () => {
             </div>
           )}
 
+          {!isLoading && candidates.length === 0 && (
+            <div className="bg-white p-6 rounded-lg shadow-lg border-l-4 border-[#d4a574] text-center">
+              <p className="text-[#4a5f7f]">No candidates matched your query. Try different skills or location.</p>
+            </div>
+          )}
+
           {!isLoading && candidates.map(candidate => (
-            <div key={candidate.id} className="bg-white p-6 rounded-lg shadow-lg border-l-4 border-[#4a5f7f]">
+            <div key={candidate._id || candidate.id} className="bg-white p-6 rounded-lg shadow-lg border-l-4 border-[#4a5f7f]">
               <div className="flex justify-between items-start">
                 <div>
                   <h3 className="text-2xl font-bold text-[#1a2f4e]">{candidate.name}</h3>
-                  <p className="text-lg text-[#4a5f7f]">{candidate.role}</p>
+                  <p className="text-lg text-[#4a5f7f]">{candidate.specialization || 'Candidate'}</p>
                 </div>
                 <div className="text-right">
-                  <p className="text-2xl font-bold text-[#1a2f4e]">{candidate.match}%</p>
-                  <p className="text-sm text-[#4a5f7f]">Match Score</p>
+                  <p className="text-sm text-[#4a5f7f]">{candidate.location || '—'}</p>
                 </div>
               </div>
               <div className="mt-4 pt-4 border-t border-[#d4a574]">
                 <p className="text-[#4a5f7f] flex items-center mb-3">
                   <FaUserTie className="mr-2 text-[#1a2f4e]" />
-                  <span className="font-semibold mr-1">AI Summary:</span> {candidate.summary}
+                  <span className="font-semibold mr-1">Skills:</span>
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  {candidate.skills.map(skill => (
+                  {(candidate.skills || []).map(skill => (
                     <span key={skill} className="bg-[#d4a574] text-[#1a2f4e] px-3 py-1 rounded-full text-sm font-semibold">
                       {skill}
                     </span>
