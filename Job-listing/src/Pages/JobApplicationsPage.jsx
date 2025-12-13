@@ -64,14 +64,14 @@ const JobApplicationsPage = () => {
   }
 
   return (
-    <section className="bg-[#D1F8EF] bg-opacity-50 min-h-screen py-10">
+    <section className="bg-[#f5f7fa] bg-opacity-50 min-h-screen py-10">
       <div className="container m-auto max-w-6xl px-6">
         {/* Header */}
         <div className="bg-white p-6 rounded-lg shadow-md mb-6">
-          <h1 className="text-3xl font-bold text-[#3674B5] mb-2">
+          <h1 className="text-3xl font-bold text-[#1a2f4e] mb-2">
             Applications for: {job?.jobName}
           </h1>
-          <p className="text-[#578FCA]">
+          <p className="text-[#4a5f7f]">
             {job?.city} • {job?.jobType} • {applications.length} Application{applications.length !== 1 ? 's' : ''}
           </p>
         </div>
@@ -84,11 +84,11 @@ const JobApplicationsPage = () => {
         ) : (
           <div className="space-y-4">
             {applications.map((app) => (
-              <div key={app._id} className="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#3674B5]">
+              <div key={app._id} className="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#1a2f4e]">
                 {/* Applicant Info */}
                 <div className="flex justify-between items-start mb-4">
                   <div>
-                    <h3 className="text-2xl font-bold text-[#3674B5]">{app.applicantName}</h3>
+                    <h3 className="text-2xl font-bold text-[#1a2f4e]">{app.applicantName}</h3>
                     <p className="text-sm text-gray-500">Applied: {new Date(app.createdAt).toLocaleDateString()}</p>
                   </div>
                   <div className="flex flex-wrap gap-2">
@@ -114,16 +114,16 @@ const JobApplicationsPage = () => {
                 </div>
 
                 {/* Contact Details */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 bg-[#D1F8EF] bg-opacity-30 p-4 rounded-md">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 bg-[#f5f7fa] bg-opacity-30 p-4 rounded-md">
                   <div className="flex items-center gap-2">
-                    <FaEnvelope className="text-[#3674B5]" />
-                    <a href={`mailto:${app.applicantEmail}`} className="text-[#3674B5] hover:underline">
+                    <FaEnvelope className="text-[#1a2f4e]" />
+                    <a href={`mailto:${app.applicantEmail}`} className="text-[#1a2f4e] hover:underline">
                       {app.applicantEmail}
                     </a>
                   </div>
                   <div className="flex items-center gap-2">
-                    <FaPhone className="text-[#3674B5]" />
-                    <a href={`tel:${app.applicantPhone}`} className="text-[#3674B5] hover:underline">
+                    <FaPhone className="text-[#1a2f4e]" />
+                    <a href={`tel:${app.applicantPhone}`} className="text-[#1a2f4e] hover:underline">
                       {app.applicantPhone}
                     </a>
                   </div>
@@ -131,7 +131,7 @@ const JobApplicationsPage = () => {
 
                 {/* Cover Letter */}
                 <div className="mb-4">
-                  <h4 className="font-bold text-[#578FCA] mb-2">Cover Letter:</h4>
+                  <h4 className="font-bold text-[#4a5f7f] mb-2">Cover Letter:</h4>
                   <p className="text-gray-700 whitespace-pre-line">{app.coverLetter}</p>
                 </div>
 
@@ -141,7 +141,7 @@ const JobApplicationsPage = () => {
                     href={`http://localhost:5000/${app.resumePath}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-[#3674B5] hover:bg-[#578FCA] text-white px-4 py-2 rounded-md transition-colors"
+                    className="inline-flex items-center gap-2 bg-[#1a2f4e] hover:bg-[#4a5f7f] text-white px-4 py-2 rounded-md transition-colors"
                   >
                     <FaFileDownload />
                     Download Resume

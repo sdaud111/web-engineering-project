@@ -74,13 +74,13 @@ const MyApplicationsPage = () => {
   }
 
   return (
-    <section className="bg-[#D1F8EF] bg-opacity-50 min-h-screen">
+    <section className="bg-[#f5f7fa] bg-opacity-50 min-h-screen">
       <div className="container m-auto max-w-4xl py-24 px-6">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-extrabold text-[#3674B5] sm:text-5xl">
+          <h1 className="text-4xl font-extrabold text-[#1a2f4e] sm:text-5xl">
             My Job Applications
           </h1>
-          <p className="mt-4 text-xl text-[#578FCA]">
+          <p className="mt-4 text-xl text-[#4a5f7f]">
             Track the status of all your applications in one place.
           </p>
         </div>
@@ -88,25 +88,25 @@ const MyApplicationsPage = () => {
         {applications.length === 0 ? (
           <div className="bg-white p-12 rounded-lg shadow-lg text-center">
             <p className="text-gray-500 text-lg mb-4">You haven't applied to any jobs yet.</p>
-            <a href="/jobs" className="text-[#3674B5] font-bold hover:underline">
+            <a href="/jobs" className="text-[#1a2f4e] font-bold hover:underline">
               Browse Jobs →
             </a>
           </div>
         ) : (
           <div className="bg-white p-6 rounded-lg shadow-lg">
-            <p className="text-[#578FCA] mb-4">Total Applications: {applications.length}</p>
+            <p className="text-[#4a5f7f] mb-4">Total Applications: {applications.length}</p>
             <div className="space-y-4">
               {applications.map(app => (
-                <div key={app._id} className="p-4 border border-[#A1E3F9] rounded-lg hover:shadow-md transition-shadow">
+                <div key={app._id} className="p-4 border border-[#d4a574] rounded-lg hover:shadow-md transition-shadow">
                   <div className="flex justify-between items-start mb-3">
                     <div className="flex-1">
-                      <h3 className="text-xl font-bold text-[#3674B5]">{app.job?.jobName || 'Job Title'}</h3>
-                      <p className="text-md text-[#578FCA]">{app.job?.city} • {app.job?.jobType}</p>
+                      <h3 className="text-xl font-bold text-[#1a2f4e]">{app.job?.jobName || 'Job Title'}</h3>
+                      <p className="text-md text-[#4a5f7f]">{app.job?.city} • {app.job?.jobType}</p>
                       <p className="text-sm text-gray-500 mt-1">Applied: {new Date(app.createdAt).toLocaleDateString()}</p>
                     </div>
                     <div className="flex items-center space-x-2">
                       {getStatusIcon(app.status)}
-                      <span className="font-semibold text-[#3674B5]">{getStatusLabel(app.status)}</span>
+                      <span className="font-semibold text-[#1a2f4e]">{getStatusLabel(app.status)}</span>
                     </div>
                   </div>
                   
@@ -119,7 +119,7 @@ const MyApplicationsPage = () => {
                         href={`http://localhost:5000/${app.resumePath}`} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="inline-flex items-center mt-3 text-[#3674B5] hover:underline"
+                        className="inline-flex items-center mt-3 text-[#1a2f4e] hover:underline"
                       >
                         <FaFileDownload className="mr-1" />
                         View My Resume

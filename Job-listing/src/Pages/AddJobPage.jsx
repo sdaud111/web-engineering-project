@@ -93,9 +93,9 @@ const AddJobPage = () => {
 
   return (
     <>
-      <section className="bg-[#A1E3F9] bg-opacity-30">
+      <section className="bg-[#d4a574] bg-opacity-30">
         <div className="container m-auto max-w-2xl py-24">
-          <div className="bg-gradient-to-br from-[#D1F8EF] to-[#A1E3F9] bg-opacity-95 px-6 py-8 mb-4 shadow-md rounded-md border-t-4 border-[#3674B5] m-4 md:m-0">
+          <div className="bg-gradient-to-br from-[#f5f7fa] to-[#d4a574] bg-opacity-95 px-6 py-8 mb-4 shadow-md rounded-md border-t-4 border-[#1a2f4e] m-4 md:m-0">
             
             {success && (
               <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-md mb-4">
@@ -110,13 +110,13 @@ const AddJobPage = () => {
             )}
 
             <form onSubmit={handleSubmit}>
-              <h2 className="text-3xl text-center font-semibold mb-6 text-[#3674B5]">
+              <h2 className="text-3xl text-center font-semibold mb-6 text-[#1a2f4e]">
                 Post a New Job
               </h2>
 
               {/* Job Name */}
               <div className="mb-4">
-                <label className="block text-[#578FCA] font-bold mb-2">
+                <label className="block text-[#4a5f7f] font-bold mb-2">
                   Job Title *
                 </label>
                 <input
@@ -126,13 +126,13 @@ const AddJobPage = () => {
                   onChange={handleInputChange}
                   placeholder="e.g. Senior React Developer"
                   required
-                  className="border border-[#3674B5] rounded w-full py-2 px-3 text-[#3674B5] bg-white focus:outline-none focus:ring-2 focus:ring-[#A1E3F9]"
+                  className="border border-[#1a2f4e] rounded w-full py-2 px-3 text-[#1a2f4e] bg-white focus:outline-none focus:ring-2 focus:ring-[#d4a574]"
                 />
               </div>
 
               {/* Job Type */}
               <div className="mb-4">
-                <label htmlFor="jobType" className="block text-[#578FCA] font-bold mb-2">
+                <label htmlFor="jobType" className="block text-[#4a5f7f] font-bold mb-2">
                   Job Type *
                 </label>
                 <select
@@ -140,7 +140,7 @@ const AddJobPage = () => {
                   name="jobType"
                   value={formData.jobType}
                   onChange={handleInputChange}
-                  className="border border-[#3674B5] rounded w-full py-2 px-3 text-[#3674B5] bg-white focus:outline-none focus:ring-2 focus:ring-[#A1E3F9]"
+                  className="border border-[#1a2f4e] rounded w-full py-2 px-3 text-[#1a2f4e] bg-white focus:outline-none focus:ring-2 focus:ring-[#d4a574]"
                 >
                   <option value="Full-Time">Full-Time</option>
                   <option value="Part-Time">Part-Time</option>
@@ -151,7 +151,7 @@ const AddJobPage = () => {
 
               {/* Work Arrangement */}
               <div className="mb-4">
-                <label htmlFor="workArrangement" className="block text-[#578FCA] font-bold mb-2">
+                <label htmlFor="workArrangement" className="block text-[#4a5f7f] font-bold mb-2">
                   Work Arrangement *
                 </label>
                 <select
@@ -159,7 +159,7 @@ const AddJobPage = () => {
                   name="workArrangement"
                   value={formData.workArrangement}
                   onChange={handleInputChange}
-                  className="border border-[#3674B5] rounded w-full py-2 px-3 text-[#3674B5] bg-white focus:outline-none focus:ring-2 focus:ring-[#A1E3F9]"
+                  className="border border-[#1a2f4e] rounded w-full py-2 px-3 text-[#1a2f4e] bg-white focus:outline-none focus:ring-2 focus:ring-[#d4a574]"
                 >
                   <option value="On-site">On-site</option>
                   <option value="Remote">Remote</option>
@@ -169,7 +169,7 @@ const AddJobPage = () => {
 
               {/* Job Position */}
               <div className="mb-4">
-                <label className="block text-[#578FCA] font-bold mb-2">
+                <label className="block text-[#4a5f7f] font-bold mb-2">
                   Job Position *
                 </label>
                 <input
@@ -179,13 +179,13 @@ const AddJobPage = () => {
                   onChange={handleInputChange}
                   placeholder="e.g. Senior Developer"
                   required
-                  className="border border-[#3674B5] rounded w-full py-2 px-3 text-[#3674B5] bg-white focus:outline-none focus:ring-2 focus:ring-[#A1E3F9]"
+                  className="border border-[#1a2f4e] rounded w-full py-2 px-3 text-[#1a2f4e] bg-white focus:outline-none focus:ring-2 focus:ring-[#d4a574]"
                 />
               </div>
 
               {/* Salary */}
               <div className="mb-4">
-                <label className="block text-[#578FCA] font-bold mb-2">
+                <label className="block text-[#4a5f7f] font-bold mb-2">
                   Salary ({formData.currency}) *
                 </label>
                 <input
@@ -194,16 +194,16 @@ const AddJobPage = () => {
                   value={formData.salary}
                   onChange={handleInputChange}
                   required
-                  className="border border-[#3674B5] rounded w-full py-2 px-3 text-[#3674B5] bg-white focus:outline-none focus:ring-2 focus:ring-[#A1E3F9]"
+                  className="border border-[#1a2f4e] rounded w-full py-2 px-3 text-[#1a2f4e] bg-white focus:outline-none focus:ring-2 focus:ring-[#d4a574]"
                 />
               </div>
 
               {/* Location Info */}
-              <h3 className="text-2xl font-bold text-[#3674B5] mb-4">Location Details</h3>
+              <h3 className="text-2xl font-bold text-[#1a2f4e] mb-4">Location Details</h3>
 
               <div className="grid grid-cols-2 gap-4 mb-4">
                 <div>
-                  <label className="block text-[#578FCA] font-bold mb-2">
+                  <label className="block text-[#4a5f7f] font-bold mb-2">
                     City *
                   </label>
                   <input
@@ -213,11 +213,11 @@ const AddJobPage = () => {
                     onChange={handleInputChange}
                     placeholder="e.g. Lahore"
                     required
-                    className="border border-[#3674B5] rounded w-full py-2 px-3 text-[#3674B5] bg-white focus:outline-none focus:ring-2 focus:ring-[#A1E3F9]"
+                    className="border border-[#1a2f4e] rounded w-full py-2 px-3 text-[#1a2f4e] bg-white focus:outline-none focus:ring-2 focus:ring-[#d4a574]"
                   />
                 </div>
                 <div>
-                  <label className="block text-[#578FCA] font-bold mb-2">
+                  <label className="block text-[#4a5f7f] font-bold mb-2">
                     Postal Code
                   </label>
                   <input
@@ -226,14 +226,14 @@ const AddJobPage = () => {
                     value={formData.postalCode}
                     onChange={handleInputChange}
                     placeholder="e.g. 54000"
-                    className="border border-[#3674B5] rounded w-full py-2 px-3 text-[#3674B5] bg-white focus:outline-none focus:ring-2 focus:ring-[#A1E3F9]"
+                    className="border border-[#1a2f4e] rounded w-full py-2 px-3 text-[#1a2f4e] bg-white focus:outline-none focus:ring-2 focus:ring-[#d4a574]"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-2 gap-4 mb-4">
                 <div>
-                  <label className="block text-[#578FCA] font-bold mb-2">
+                  <label className="block text-[#4a5f7f] font-bold mb-2">
                     Sector/Area *
                   </label>
                   <input
@@ -243,11 +243,11 @@ const AddJobPage = () => {
                     onChange={handleInputChange}
                     placeholder="e.g. Technology"
                     required
-                    className="border border-[#3674B5] rounded w-full py-2 px-3 text-[#3674B5] bg-white focus:outline-none focus:ring-2 focus:ring-[#A1E3F9]"
+                    className="border border-[#1a2f4e] rounded w-full py-2 px-3 text-[#1a2f4e] bg-white focus:outline-none focus:ring-2 focus:ring-[#d4a574]"
                   />
                 </div>
                 <div>
-                  <label className="block text-[#578FCA] font-bold mb-2">
+                  <label className="block text-[#4a5f7f] font-bold mb-2">
                     Street *
                   </label>
                   <input
@@ -257,16 +257,16 @@ const AddJobPage = () => {
                     onChange={handleInputChange}
                     placeholder="e.g. 123 Main St"
                     required
-                    className="border border-[#3674B5] rounded w-full py-2 px-3 text-[#3674B5] bg-white focus:outline-none focus:ring-2 focus:ring-[#A1E3F9]"
+                    className="border border-[#1a2f4e] rounded w-full py-2 px-3 text-[#1a2f4e] bg-white focus:outline-none focus:ring-2 focus:ring-[#d4a574]"
                   />
                 </div>
               </div>
 
               {/* Job Description */}
-              <h3 className="text-2xl font-bold text-[#3674B5] mb-4">Job Details</h3>
+              <h3 className="text-2xl font-bold text-[#1a2f4e] mb-4">Job Details</h3>
 
               <div className="mb-4">
-                <label className="block text-[#578FCA] font-bold mb-2">
+                <label className="block text-[#4a5f7f] font-bold mb-2">
                   Job Description *
                 </label>
                 <textarea
@@ -276,12 +276,12 @@ const AddJobPage = () => {
                   placeholder="Describe the job, responsibilities, and requirements..."
                   rows="6"
                   required
-                  className="border border-[#3674B5] rounded w-full py-2 px-3 text-[#3674B5] bg-white focus:outline-none focus:ring-2 focus:ring-[#A1E3F9] resize-none"
+                  className="border border-[#1a2f4e] rounded w-full py-2 px-3 text-[#1a2f4e] bg-white focus:outline-none focus:ring-2 focus:ring-[#d4a574] resize-none"
                 />
               </div>
 
               <div className="mb-4">
-                <label className="block text-[#578FCA] font-bold mb-2">
+                <label className="block text-[#4a5f7f] font-bold mb-2">
                   Additional Information
                 </label>
                 <textarea
@@ -290,16 +290,16 @@ const AddJobPage = () => {
                   onChange={handleInputChange}
                   placeholder="Any additional details about the job..."
                   rows="3"
-                  className="border border-[#3674B5] rounded w-full py-2 px-3 text-[#3674B5] bg-white focus:outline-none focus:ring-2 focus:ring-[#A1E3F9] resize-none"
+                  className="border border-[#1a2f4e] rounded w-full py-2 px-3 text-[#1a2f4e] bg-white focus:outline-none focus:ring-2 focus:ring-[#d4a574] resize-none"
                 />
               </div>
 
               {/* Contact Info */}
-              <h3 className="text-2xl font-bold text-[#3674B5] mb-4">Contact Information</h3>
+              <h3 className="text-2xl font-bold text-[#1a2f4e] mb-4">Contact Information</h3>
 
               <div className="grid grid-cols-2 gap-4 mb-4">
                 <div>
-                  <label className="block text-[#578FCA] font-bold mb-2">
+                  <label className="block text-[#4a5f7f] font-bold mb-2">
                     Email *
                   </label>
                   <input
@@ -309,11 +309,11 @@ const AddJobPage = () => {
                     onChange={handleInputChange}
                     placeholder="contact@company.com"
                     required
-                    className="border border-[#3674B5] rounded w-full py-2 px-3 text-[#3674B5] bg-white focus:outline-none focus:ring-2 focus:ring-[#A1E3F9]"
+                    className="border border-[#1a2f4e] rounded w-full py-2 px-3 text-[#1a2f4e] bg-white focus:outline-none focus:ring-2 focus:ring-[#d4a574]"
                   />
                 </div>
                 <div>
-                  <label className="block text-[#578FCA] font-bold mb-2">
+                  <label className="block text-[#4a5f7f] font-bold mb-2">
                     Phone
                   </label>
                   <input
@@ -322,13 +322,13 @@ const AddJobPage = () => {
                     value={formData.phone}
                     onChange={handleInputChange}
                     placeholder="e.g. +92 300 123 4567"
-                    className="border border-[#3674B5] rounded w-full py-2 px-3 text-[#3674B5] bg-white focus:outline-none focus:ring-2 focus:ring-[#A1E3F9]"
+                    className="border border-[#1a2f4e] rounded w-full py-2 px-3 text-[#1a2f4e] bg-white focus:outline-none focus:ring-2 focus:ring-[#d4a574]"
                   />
                 </div>
               </div>
 
               <div className="mb-6">
-                <label className="block text-[#578FCA] font-bold mb-2">
+                <label className="block text-[#4a5f7f] font-bold mb-2">
                   Website
                 </label>
                 <input
@@ -337,7 +337,7 @@ const AddJobPage = () => {
                   value={formData.website}
                   onChange={handleInputChange}
                   placeholder="https://company.com"
-                  className="border border-[#3674B5] rounded w-full py-2 px-3 text-[#3674B5] bg-white focus:outline-none focus:ring-2 focus:ring-[#A1E3F9]"
+                  className="border border-[#1a2f4e] rounded w-full py-2 px-3 text-[#1a2f4e] bg-white focus:outline-none focus:ring-2 focus:ring-[#d4a574]"
                 />
               </div>
 
@@ -348,7 +348,7 @@ const AddJobPage = () => {
                 className={`w-full font-bold py-3 px-4 rounded-full transition-all duration-200 ${
                   loading
                     ? 'bg-gray-400 text-white cursor-not-allowed'
-                    : 'bg-[#3674B5] hover:bg-[#578FCA] text-white cursor-pointer'
+                    : 'bg-[#1a2f4e] hover:bg-[#4a5f7f] text-white cursor-pointer'
                 }`}
               >
                 {loading ? 'Posting Job...' : 'Post Job'}

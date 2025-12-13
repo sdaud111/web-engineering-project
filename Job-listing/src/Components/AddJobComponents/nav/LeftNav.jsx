@@ -34,9 +34,9 @@ const LeftNav = ({ collapsed, setCollapsed }) => {
           onClick={() => setCollapsed(!collapsed)}
         >
           {collapsed ? (
-            <FiMenu className="text-[30px] text-blue-900 font-extrabold" />
+            <FiMenu className="text-[30px] text-[#1a2f4e] font-extrabold" />
           ) : (
-            <FaArrowLeft className="text-[30px] text-blue-900 font-extrabold" />
+            <FaArrowLeft className="text-[30px] text-[#1a2f4e] font-extrabold" />
           )}
         </button>
       </div>

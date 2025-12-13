@@ -24,13 +24,13 @@ const AISearchPage = () => {
   };
 
   return (
-    <section className="bg-[#D1F8EF] bg-opacity-50 min-h-screen">
+    <section className="bg-[#f5f7fa] bg-opacity-50 min-h-screen">
       <div className="container m-auto max-w-4xl py-24 px-6">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-extrabold text-[#3674B5] sm:text-5xl">
+          <h1 className="text-4xl font-extrabold text-[#1a2f4e] sm:text-5xl">
             AI-Powered Job Search
           </h1>
-          <p className="mt-4 text-xl text-[#578FCA]">
+          <p className="mt-4 text-xl text-[#4a5f7f]">
             Describe your ideal job, and let our AI find it for you.
           </p>
         </div>
@@ -43,13 +43,13 @@ const AISearchPage = () => {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="e.g., 'Find remote software roles that use React...'"
-              className="w-full py-4 pl-12 pr-4 text-lg text-[#3674B5] bg-white border-2 border-[#A1E3F9] rounded-full focus:outline-none focus:ring-4 focus:ring-[#A1E3F9] transition"
+              className="w-full py-4 pl-12 pr-4 text-lg text-[#1a2f4e] bg-white border-2 border-[#d4a574] rounded-full focus:outline-none focus:ring-4 focus:ring-[#d4a574] transition"
             />
-            <FaSearch className="absolute top-1/2 left-4 -translate-y-1/2 text-[#578FCA] text-xl" />
+            <FaSearch className="absolute top-1/2 left-4 -translate-y-1/2 text-[#4a5f7f] text-xl" />
           </div>
           <button
             type="submit"
-            className="w-full mt-4 py-3 text-white bg-[#3674B5] rounded-full hover:bg-[#2A5A8C] transition-all duration-200 shadow-md hover:shadow-lg text-lg font-semibold"
+            className="w-full mt-4 py-3 text-white bg-[#1a2f4e] rounded-full hover:bg-[#2A5A8C] transition-all duration-200 shadow-md hover:shadow-lg text-lg font-semibold"
             disabled={isLoading}
           >
             {isLoading ? 'Searching...' : 'Ask AI'}
@@ -60,27 +60,27 @@ const AISearchPage = () => {
         <div className="space-y-6">
           {isLoading && (
             <div className="text-center">
-              <div className="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full text-[#3674B5]" role="status">
+              <div className="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full text-[#1a2f4e]" role="status">
                 <span className="visually-hidden">Loading...</span>
               </div>
             </div>
           )}
 
           {!isLoading && results.map(job => (
-            <div key={job.id} className="bg-white p-6 rounded-lg shadow-lg border-l-4 border-[#578FCA]">
+            <div key={job.id} className="bg-white p-6 rounded-lg shadow-lg border-l-4 border-[#4a5f7f]">
               <div className="flex justify-between items-start">
                 <div>
-                  <h3 className="text-2xl font-bold text-[#3674B5]">{job.title}</h3>
-                  <p className="text-lg text-[#578FCA]">{job.company}</p>
+                  <h3 className="text-2xl font-bold text-[#1a2f4e]">{job.title}</h3>
+                  <p className="text-lg text-[#4a5f7f]">{job.company}</p>
                 </div>
                 <div className="text-right">
-                  <p className="text-2xl font-bold text-[#3674B5]">{job.match}%</p>
-                  <p className="text-sm text-[#578FCA]">Match</p>
+                  <p className="text-2xl font-bold text-[#1a2f4e]">{job.match}%</p>
+                  <p className="text-sm text-[#4a5f7f]">Match</p>
                 </div>
               </div>
-              <div className="mt-4 pt-4 border-t border-[#A1E3F9]">
-                <p className="text-[#578FCA] flex items-center">
-                  <FaUserAstronaut className="mr-2 text-[#3674B5]" />
+              <div className="mt-4 pt-4 border-t border-[#d4a574]">
+                <p className="text-[#4a5f7f] flex items-center">
+                  <FaUserAstronaut className="mr-2 text-[#1a2f4e]" />
                   <span className="font-semibold mr-1">AI Note:</span> {job.summary}
                 </p>
               </div>

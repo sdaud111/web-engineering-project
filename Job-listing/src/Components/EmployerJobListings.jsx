@@ -50,7 +50,7 @@ const EmployerJobListings = () => {
     return (
       <div className="text-center py-8">
         <p className="text-gray-500 mb-4">You haven't posted any jobs yet.</p>
-        <a href="/add-job" className="text-[#3674B5] font-bold hover:underline">
+        <a href="/add-job" className="text-[#1a2f4e] font-bold hover:underline">
           Post your first job →
         </a>
       </div>
@@ -58,26 +58,26 @@ const EmployerJobListings = () => {
   }
 
   return (
-    <section className="bg-[#D1F8EF] bg-opacity-50 px-4 py-10">
+    <section className="bg-[#f5f7fa] bg-opacity-50 px-4 py-10">
       <div className="container-xl lg:container m-auto">
-        <h2 className="text-3xl font-bold text-[#3674B5] mb-6 text-center">
+        <h2 className="text-3xl font-bold text-[#1a2f4e] mb-6 text-center">
           My Published Jobs ({jobs.length})
         </h2>
 
         <div className="grid grid-cols-1 gap-6">
           {jobs.map((job) => (
-            <div key={job._id} className="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#3674B5]">
+            <div key={job._id} className="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#1a2f4e]">
               <div className="flex justify-between items-start">
                 <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-[#3674B5] mb-2">{job.jobName}</h3>
-                  <p className="text-[#578FCA] mb-2">{job.city} • {job.jobType} • {job.workArrangement}</p>
+                  <h3 className="text-2xl font-bold text-[#1a2f4e] mb-2">{job.jobName}</h3>
+                  <p className="text-[#4a5f7f] mb-2">{job.city} • {job.jobType} • {job.workArrangement}</p>
                   <p className="text-gray-600 mb-2">Salary: {job.salary} {job.currency}</p>
                   <p className="text-sm text-gray-500">Posted: {new Date(job.createdAt).toLocaleDateString()}</p>
                 </div>
                 <div className="flex flex-col gap-2">
                   <Link
                     to={`/jobs/${job._id}/applications`}
-                    className="flex items-center gap-2 bg-[#3674B5] hover:bg-[#578FCA] text-white px-4 py-2 rounded-md transition-colors text-sm"
+                    className="flex items-center gap-2 bg-[#1a2f4e] hover:bg-[#4a5f7f] text-white px-4 py-2 rounded-md transition-colors text-sm"
                   >
                     <FaEye /> View Applications
                   </Link>

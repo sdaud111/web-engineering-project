@@ -121,8 +121,8 @@ const ApplyJobForm = ({ jobId }) => {
   };
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md mt-6 border-l-4 border-[#3674B5]">
-      <h3 className="text-2xl font-bold mb-6 text-[#3674B5]">Apply For This Job</h3>
+    <div className="bg-white p-6 rounded-lg shadow-md mt-6 border-l-4 border-[#1a2f4e]">
+      <h3 className="text-2xl font-bold mb-6 text-[#1a2f4e]">Apply For This Job</h3>
 
       {success && (
         <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-md mb-4 flex items-center">
@@ -146,7 +146,7 @@ const ApplyJobForm = ({ jobId }) => {
       <form onSubmit={handleSubmit}>
         {/* Name Field */}
         <div className="mb-4">
-          <label htmlFor="applicantName" className="block text-[#578FCA] font-bold mb-2">
+          <label htmlFor="applicantName" className="block text-[#4a5f7f] font-bold mb-2">
             Full Name *
           </label>
           <input
@@ -157,13 +157,13 @@ const ApplyJobForm = ({ jobId }) => {
             onChange={handleInputChange}
             placeholder="John Doe"
             required
-            className="border border-[#3674B5] rounded w-full py-2 px-3 text-[#3674B5] bg-white focus:outline-none focus:ring-2 focus:ring-[#A1E3F9]"
+            className="border border-[#1a2f4e] rounded w-full py-2 px-3 text-[#1a2f4e] bg-white focus:outline-none focus:ring-2 focus:ring-[#d4a574]"
           />
         </div>
 
         {/* Email Field */}
         <div className="mb-4">
-          <label htmlFor="applicantEmail" className="block text-[#578FCA] font-bold mb-2">
+          <label htmlFor="applicantEmail" className="block text-[#4a5f7f] font-bold mb-2">
             Email *
           </label>
           <input
@@ -174,13 +174,13 @@ const ApplyJobForm = ({ jobId }) => {
             onChange={handleInputChange}
             placeholder="john@example.com"
             required
-            className="border border-[#3674B5] rounded w-full py-2 px-3 text-[#3674B5] bg-white focus:outline-none focus:ring-2 focus:ring-[#A1E3F9]"
+            className="border border-[#1a2f4e] rounded w-full py-2 px-3 text-[#1a2f4e] bg-white focus:outline-none focus:ring-2 focus:ring-[#d4a574]"
           />
         </div>
 
         {/* Phone Field */}
         <div className="mb-4">
-          <label htmlFor="applicantPhone" className="block text-[#578FCA] font-bold mb-2">
+          <label htmlFor="applicantPhone" className="block text-[#4a5f7f] font-bold mb-2">
             Phone Number *
           </label>
           <input
@@ -191,13 +191,13 @@ const ApplyJobForm = ({ jobId }) => {
             onChange={handleInputChange}
             placeholder="+92300123456"
             required
-            className="border border-[#3674B5] rounded w-full py-2 px-3 text-[#3674B5] bg-white focus:outline-none focus:ring-2 focus:ring-[#A1E3F9]"
+            className="border border-[#1a2f4e] rounded w-full py-2 px-3 text-[#1a2f4e] bg-white focus:outline-none focus:ring-2 focus:ring-[#d4a574]"
           />
         </div>
 
         {/* Cover Letter Field */}
         <div className="mb-4">
-          <label htmlFor="coverLetter" className="block text-[#578FCA] font-bold mb-2">
+          <label htmlFor="coverLetter" className="block text-[#4a5f7f] font-bold mb-2">
             Cover Letter / Why You're a Good Fit *
           </label>
           <textarea
@@ -208,16 +208,16 @@ const ApplyJobForm = ({ jobId }) => {
             placeholder="Tell us why you're the perfect fit for this role..."
             rows="5"
             required
-            className="border border-[#3674B5] rounded w-full py-2 px-3 text-[#3674B5] bg-white focus:outline-none focus:ring-2 focus:ring-[#A1E3F9] resize-none"
+            className="border border-[#1a2f4e] rounded w-full py-2 px-3 text-[#1a2f4e] bg-white focus:outline-none focus:ring-2 focus:ring-[#d4a574] resize-none"
           />
         </div>
 
         {/* Resume Upload Field */}
         <div className="mb-6">
-          <label htmlFor="resume" className="block text-[#578FCA] font-bold mb-2">
+          <label htmlFor="resume" className="block text-[#4a5f7f] font-bold mb-2">
             Upload Resume (PDF) *
           </label>
-          <div className="border-2 border-dashed border-[#3674B5] rounded-lg p-6 text-center bg-[#D1F8EF] bg-opacity-30 cursor-pointer hover:bg-opacity-50 transition-all">
+          <div className="border-2 border-dashed border-[#1a2f4e] rounded-lg p-6 text-center bg-[#f5f7fa] bg-opacity-30 cursor-pointer hover:bg-opacity-50 transition-all">
             <input
               type="file"
               id="resume"
@@ -228,9 +228,9 @@ const ApplyJobForm = ({ jobId }) => {
               className="hidden"
             />
             <label htmlFor="resume" className="cursor-pointer block">
-              <FaFileUpload className="text-4xl text-[#3674B5] mx-auto mb-2" />
-              <p className="text-[#578FCA] font-semibold">Click to upload or drag and drop</p>
-              <p className="text-[#A1E3F9] text-sm">PDF files only (max 5MB)</p>
+              <FaFileUpload className="text-4xl text-[#1a2f4e] mx-auto mb-2" />
+              <p className="text-[#4a5f7f] font-semibold">Click to upload or drag and drop</p>
+              <p className="text-[#d4a574] text-sm">PDF files only (max 5MB)</p>
               {resume && <p className="text-green-600 font-semibold mt-2">✓ {resume.name}</p>}
             </label>
           </div>
@@ -243,7 +243,7 @@ const ApplyJobForm = ({ jobId }) => {
           className={`w-full font-bold py-3 px-4 rounded-lg transition-all duration-200 ${
             loading || !applicantId
               ? 'bg-gray-400 text-white cursor-not-allowed'
-              : 'bg-[#3674B5] hover:bg-[#578FCA] text-white cursor-pointer'
+              : 'bg-[#1a2f4e] hover:bg-[#4a5f7f] text-white cursor-pointer'
           }`}
         >
           {loading ? 'Submitting Application...' : 'Submit Application'}

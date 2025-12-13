@@ -7,7 +7,7 @@ const JobsPage = () => {
   const isEmployer = user?.user?.userType?.toLowerCase() === "employer";
 
   return (
-   <section className="bg-[#D1F8EF] px-4 py-6">
+   <section className="bg-[#f5f7fa] px-4 py-6">
       {isEmployer ? <EmployerJobListings /> : <Joblistings />}
    </section>
   )

@@ -1,10 +1,10 @@
 
 
 :root {
-  --color-primary: #3674B5;    /* Deep blue for primary elements */
-  --color-secondary: #578FCA;  /* Medium blue for secondary elements */
-  --color-accent: #A1E3F9;     /* Light blue for accents */
-  --color-light: #D1F8EF;      /* Mint for backgrounds */
+  --color-primary: #1a2f4e;    /* Deep Navy - Trust & Professionalism */
+  --color-secondary: #4a5f7f;  /* Elegant Slate - Balance */
+  --color-accent: #d4a574;     /* Modern Gold - Premium & Attention */
+  --color-light: #f5f7fa;      /* Subtle Off-white - Clean Background */
 }
 
 body {
