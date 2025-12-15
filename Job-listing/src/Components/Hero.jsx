@@ -1,9 +1,8 @@
 import React from 'react'
 
 const Hero = () => {
-  // Hero component with background image from Unsplash
   return (
-    <section className="h-[70vh] bg-[#1a2f4e]  mb-4 relative overflow-hidden">
+    <section className="h-[70vh] bg-[#1a2f4e] mb-4 relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full">
         <img 
           src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb" 
@@ -15,20 +14,17 @@ const Hero = () => {
         <div className="absolute bottom-10 right-20 w-32 h-32 rounded-full bg-[#4a5f7f] opacity-20"></div>
         <div className="absolute top-40 right-40 w-16 h-16 rounded-full bg-[#f5f7fa] opacity-20"></div>
       </div>
-      <div
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center relative z-10"
-      >
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center h-full items-center relative z-10">
         <div className="text-center">
-          <h1
-            className="text-4xl font-extrabold text-[#f5f7fa] sm:text-5xl md:text-6xl"
-          >
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#f5f7fa] leading-snug sm:leading-tight md:leading-tight">
             Find Your Dream <span className="text-[#d4a574]">Jobs</span>
           </h1>
-          <p className="my-6 text-xl text-[#d4a574]">
+          <p className="mt-4 sm:mt-6 text-lg sm:text-xl md:text-2xl text-[#d4a574]">
             Discover opportunities that match your skills and aspirations
           </p>
-          <div className="mt-4">
-            <button className="px-6 py-3 bg-[#d4a574] text-[#1a2f4e] font-semibold rounded-lg hover:bg-[#4a5f7f] hover:text-white transition-colors duration-300 shadow-lg hover:shadow-xl">
+          <div className="mt-6 sm:mt-8">
+            <button className="px-6 py-3 sm:px-8 sm:py-4 bg-[#d4a574] text-[#1a2f4e] font-semibold rounded-lg hover:bg-[#4a5f7f] hover:text-white transition-colors duration-300 shadow-lg hover:shadow-xl">
               Browse Latest Jobs
             </button>
           </div>
