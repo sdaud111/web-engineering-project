@@ -1,4 +1,6 @@
 import React from "react";
+// 1. Import useNavigate
+import { useNavigate } from "react-router-dom";
 import { FaCogs, FaEnvelope, FaHome, FaInfoCircle, FaTimes } from "react-icons/fa";
 import { FiMenu } from "react-icons/fi";
 
@@ -17,6 +19,8 @@ const Navbar2 = ({
     inactiveIconBorderColor = "#a3b3ff"
 }) => {
     const [menuOpen, setMenuOpen] = React.useState(false);
+    // 2. Initialize useNavigate hook
+    const navigate = useNavigate();
 
     const linkBaseStyle = {
         color: inactiveTextColor,
@@ -30,13 +34,15 @@ const Navbar2 = ({
         transition: "all 0.3s ease"
     };
 
-    // Simple navigation function
+    // 3. Simple navigation function now uses navigate
     const goTo = (path) => {
-        // In a real application, you'd use react-router-dom or similar
-        console.log(`Navigating to: ${path}`);
-        // window.location.href = path; // Uncomment for actual navigation
-        setMenuOpen(false); // Close menu after navigation attempt
+        navigate(path);
+        setMenuOpen(false); // Close menu after navigation
     };
+
+    // Handlers for the Sign In/Up buttons
+    const handleSignIn = () => goTo("/login2");
+    const handleSignUp = () => goTo("/signup2");
 
     return (
         <>
@@ -46,7 +52,6 @@ const Navbar2 = ({
             >
                 <div className="flex justify-between items-center w-full">
                     <div className="flex items-center gap-2 sm:gap-4 fjalla group">
-                        {/* Logo Icon */}
                         <div className="relative">
                             <div className="absolute inset-0 bg-gradient-to-r from-[#d4a574] to-[#1a2f4e] rounded-xl blur opacity-30 group-hover:opacity-50 transition duration-300"></div>
                             <div className="relative h-12 w-12 sm:h-14 sm:w-14 bg-gradient-to-br from-[#1a2f4e] to-[#4a5f7f] rounded-xl flex items-center justify-center shadow-xl group-hover:scale-105 transition duration-300">
@@ -56,13 +61,11 @@ const Navbar2 = ({
                                 </svg>
                             </div>
                         </div>
-                        {/* Logo Text */}
                         <span className="text-2xl sm:text-4xl font-extrabold tracking-tight" style={{ color: logoColor }}>
                             Job<span className="text-[#d4a574]">-</span>Connect
                         </span>
                     </div>
 
-                    {/* Menu Button */}
                     <button
                         onClick={() => setMenuOpen(!menuOpen)}
                         className="w-10 h-10 sm:w-14 sm:h-14 flex items-center justify-center rounded-full shadow-md hover:shadow-lg transition-all duration-300"
@@ -77,16 +80,13 @@ const Navbar2 = ({
                 </div>
             </nav>
 
-            {/* Mobile Menu Panel */}
             {menuOpen && (
                 <div className="fixed inset-0 backdrop-blur-[2px] flex justify-end items-start pt-[68px] sm:pt-24 pr-4 sm:pr-8 z-40 transition-all duration-600 text-indigo-950">
                     <div
-                        // **Updated Responsive Classes**
                         className="w-[85%] max-w-[320px] sm:w-[280px] sm:max-w-xs max-h-[90vh] rounded-2xl shadow-2xl p-4 sm:p-6 animate-slideIn flex flex-col justify-between overflow-y-auto"
                         style={{ backgroundColor: menuBackgroundColor }}
                     >
                         <div className="flex justify-between items-center mb-2">
-                            {/* **Updated Font Size** */}
                             <h3 className="text-xl sm:text-2xl font-semibold">Menu</h3>
                         </div>
 
@@ -94,15 +94,13 @@ const Navbar2 = ({
 
                         <div className="flex flex-col gap-3 mb-4 sm:gap-4 sm:mb-6">
 
-                            {/* Active Link */}
+                            {/* Home Link (Uses /landing based on original code, but now uses goTo) */}
                             <a
                                 onClick={() => goTo("/landing")}
-                                // **Updated Font Size**
                                 className="flex items-center gap-3 text-xl sm:text-2xl font-semibold cursor-pointer"
                                 style={{ color: activeTextColor }}
                             >
                                 <div
-                                    // **Updated Icon Size**
                                     className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-full shadow-md"
                                     style={{
                                         color: activeIconTextColor,
@@ -114,39 +112,98 @@ const Navbar2 = ({
                                 Home
                             </a>
 
-                            {/* Inactive Links (Applied same responsive text and icon sizes) */}
-                            {[{ to: "/about", text: "About", Icon: FaInfoCircle }, { to: "/services", text: "Services", Icon: FaCogs }, { to: "/contact", text: "Contact", Icon: FaEnvelope }].map((item, index) => (
-                                <a
-                                    key={index}
-                                    onClick={() => goTo(item.to)}
-                                    className="flex items-center gap-3 text-xl sm:text-2xl font-semibold cursor-pointer"
-                                    style={linkBaseStyle}
-                                    onMouseEnter={(e) => (e.currentTarget.style.color = inactiveTextHoverColor)}
-                                    onMouseLeave={(e) => (e.currentTarget.style.color = inactiveTextColor)}
+                            {/* About Link (Original code preserved, uses goTo) */}
+                            <a
+                                onClick={() => goTo("/about")}
+                                className="flex items-center gap-3 text-xl sm:text-2xl font-semibold cursor-pointer"
+                                style={linkBaseStyle}
+                                onMouseEnter={(e) => (e.currentTarget.style.color = inactiveTextHoverColor)}
+                                onMouseLeave={(e) => (e.currentTarget.style.color = inactiveTextColor)}
+                            >
+                                <div
+                                    className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-full shadow-sm"
+                                    style={iconBaseStyle}
+                                    onMouseEnter={(e) => {
+                                        e.currentTarget.style.backgroundColor = inactiveTextHoverColor;
+                                        e.currentTarget.style.color = "#fff";
+                                    }}
+                                    onMouseLeave={(e) => {
+                                        e.currentTarget.style.backgroundColor = inactiveIconBgColor;
+                                        e.currentTarget.style.color = inactiveIconTextColor;
+                                    }}
                                 >
-                                    <div
-                                        className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-full shadow-sm"
-                                        style={iconBaseStyle}
-                                        onMouseEnter={(e) => {
-                                            e.currentTarget.style.backgroundColor = inactiveTextHoverColor;
-                                            e.currentTarget.style.color = "#fff";
-                                        }}
-                                        onMouseLeave={(e) => {
-                                            e.currentTarget.style.backgroundColor = inactiveIconBgColor;
-                                            e.currentTarget.style.color = inactiveIconTextColor;
-                                        }}
-                                    >
-                                        <item.Icon className="text-lg" />
-                                    </div>
-                                    {item.text}
-                                </a>
-                            ))}
+                                    <FaInfoCircle className="text-lg" />
+                                </div>
+                                About
+                            </a>
+
+                            {/* Services Link (Original code preserved, uses goTo) */}
+                            <a
+                                onClick={() => goTo("/services")}
+                                className="flex items-center gap-3 text-xl sm:text-2xl font-semibold cursor-pointer"
+                                style={linkBaseStyle}
+                                onMouseEnter={(e) => (e.currentTarget.style.color = inactiveTextHoverColor)}
+                                onMouseLeave={(e) => (e.currentTarget.style.color = inactiveTextColor)}
+                            >
+                                <div
+                                    className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-full shadow-sm"
+                                    style={iconBaseStyle}
+                                    onMouseEnter={(e) => {
+                                        e.currentTarget.style.backgroundColor = inactiveTextHoverColor;
+                                        e.currentTarget.style.color = "#fff";
+                                    }}
+                                    onMouseLeave={(e) => {
+                                        e.currentTarget.style.backgroundColor = inactiveIconBgColor;
+                                        e.currentTarget.style.color = inactiveIconTextColor;
+                                    }}
+                                >
+                                    <FaCogs className="text-lg" />
+                                </div>
+                                Services
+                            </a>
+
+                            {/* Contact Link (Original code preserved, uses goTo) */}
+                            <a
+                                onClick={() => goTo("/contact")}
+                                className="flex items-center gap-3 text-xl sm:text-2xl font-semibold cursor-pointer"
+                                style={linkBaseStyle}
+                                onMouseEnter={(e) => (e.currentTarget.style.color = inactiveTextHoverColor)}
+                                onMouseLeave={(e) => (e.currentTarget.style.color = inactiveTextColor)}
+                            >
+                                <div
+                                    className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-full shadow-sm"
+                                    style={iconBaseStyle}
+                                    onMouseEnter={(e) => {
+                                        e.currentTarget.style.backgroundColor = inactiveTextHoverColor;
+                                        e.currentTarget.style.color = "#fff";
+                                    }}
+                                    onMouseLeave={(e) => {
+                                        e.currentTarget.style.backgroundColor = inactiveIconBgColor;
+                                        e.currentTarget.style.color = inactiveIconTextColor;
+                                    }}
+                                >
+                                    <FaEnvelope className="text-lg" />
+                                </div>
+                                Contact
+                            </a>
                         </div>
 
-                        {/* Sign In/Up Buttons */}
+                        {/* Sign In/Up Buttons - Now functional with router */}
                         <div className="flex flex-col gap-2 sm:gap-3 text-lg">
-                            <button className="w-full py-2 border border-indigo-600 text-indigo-700 rounded-full font-semibold hover:bg-indigo-50 transition">Sign In</button>
-                            <button className="w-full py-2 bg-indigo-600 text-white rounded-full font-semibold hover:bg-indigo-700 transition">Sign Up</button>
+                            <button 
+                                // 4. Wire up Sign In to /login2
+                                onClick={handleSignIn} 
+                                className="w-full py-2 border border-indigo-600 text-indigo-700 rounded-full font-semibold hover:bg-indigo-50 transition"
+                            >
+                                Sign In
+                            </button>
+                            <button 
+                                // 4. Wire up Sign Up to /signup2
+                                onClick={handleSignUp} 
+                                className="w-full py-2 bg-indigo-600 text-white rounded-full font-semibold hover:bg-indigo-700 transition"
+                            >
+                                Sign Up
+                            </button>
                         </div>
 
                     </div>
