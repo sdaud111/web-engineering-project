@@ -31,7 +31,7 @@ import ApplicantProfile from './Pages/ApplicantProfile.jsx';
 import JobApplicationsPage from './Pages/JobApplicationsPage.jsx';
 import ResponsesPage from './Pages/ResponsesPage.jsx';
 import FeedPage from './Pages/FeedPage.jsx';
-import Dashboard from './Pages/Dashboard.jsx';
+
 
 const App = () => {
   const isAuth = localStorage.getItem("isAuth");
@@ -45,7 +45,7 @@ const App = () => {
         <Route path="/login2" element={<Login2 />} />
         <Route path="/add-job2" element={<AddJob />} />
         <Route path="/submit-job" element={<SubmitJob />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+       
 
         {/* ---------------- PROTECTED ROUTES ---------------- */}
         <Route
