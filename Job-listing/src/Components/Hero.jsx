@@ -3,7 +3,7 @@ import React from 'react'
 const Hero = () => {
   // Hero component with background image from Unsplash
   return (
-    <section className="bg-[#1a2f4e] py-20 mb-4 relative overflow-hidden">
+    <section className="h-[70vh] bg-[#1a2f4e]  mb-4 relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full">
         <img 
           src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb" 
