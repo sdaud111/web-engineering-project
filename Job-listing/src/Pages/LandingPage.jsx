@@ -7,39 +7,44 @@ import {
     FaEnvelope,
     FaPlus,
     FaMinus,
-    FaTimes, FaUser,
-    FaBuilding, FaClipboardList, FaPeopleCarry
-} from "react-icons/fa"
-import {FiMenu} from "react-icons/fi";
+    FaTimes,
+    FaUser,
+    FaBuilding,
+    FaClipboardList,
+    FaPeopleCarry
+} from "react-icons/fa";
+import { FiMenu } from "react-icons/fi";
 import React, { useEffect, useRef, useState } from "react";
-import CountUp from "react-countup"
-import Navbar2 from "../Components/Navbar2.jsx"
+import Navbar2 from "../Components/Navbar2.jsx";
 
-    {/*<div className={"rounded-full shadow-lg hover:bg-white hover:text-black transition-all duration-600 border-2 p-4 cursor-pointer flex items-center gap-4"}>*/}
-    {/*    <FaUser/>*/}
-    {/*    <button className={""}>Login/SignUp</button>*/}
-    {/*</div>*/}
+
 
 const Hero = () => {
     return (
         <section className="bg-[url('/landing-page-gradient.png')] bg-cover bg-no-repeat min-h-screen w-full flex items-center justify-center">
-            <div className="pt-40 flex flex-col items-center justify-center gap-12 text-center">
-                <div className="w-[70%] flex justify-evenly items-center">
-                    <h2 className="text-[100px] leading-tight font-bold text-black flex-1">
+            <div className="pt-32 md:pt-40 flex flex-col items-center justify-center gap-12 text-center">
+                <div className="w-[90%] md:w-[70%] flex flex-col md:flex-row justify-evenly items-center gap-8">
+                    <h2 className="text-[42px] sm:text-[60px] md:text-[100px] leading-tight font-bold text-black flex-1">
                         Connecting talent with opportunity
                     </h2>
-                    <div className="w-[4px] bg-white/40 rounded-full shadow-[0_0_25px_#ffffff70] self-stretch"></div>
-                    <h2 className="text-[100px] tracking-wide leading-snug text-gray-200 font-bold flex-1">
+
+                    <div className="hidden md:block w-[4px] bg-white/40 rounded-full shadow-[0_0_25px_#ffffff70] self-stretch"></div>
+
+                    <h2 className="text-[42px] sm:text-[60px] md:text-[100px] tracking-wide leading-snug text-gray-200 font-bold flex-1">
                         With one Career at a time
                     </h2>
                 </div>
-                <button className="px-22 py-8 text-2xl font-semibold text-white bg-indigo-600 rounded-full shadow-lg hover:bg-white hover:text-indigo-600 transition-all duration-600">
+
+                <button className="px-12 md:px-22 py-6 md:py-8 text-xl md:text-2xl font-semibold text-white bg-indigo-600 rounded-full shadow-lg hover:bg-white hover:text-indigo-600 transition-all duration-600">
                     See our vision
                 </button>
             </div>
         </section>
     );
 };
+
+
+
 const CountUpStats = ({ end, duration = 2000, label }) => {
     const [count, setCount] = useState(0);
     const [started, setStarted] = useState(false);
@@ -80,37 +85,38 @@ const CountUpStats = ({ end, duration = 2000, label }) => {
 
     return (
         <div ref={ref} className="flex flex-col items-center justify-center">
-            <h2 className="text-8xl font-extrabold text-indigo-600 drop-shadow-lg transition-all ease-in-out duration-500">
+            <h2 className="text-6xl md:text-8xl font-extrabold text-indigo-600 drop-shadow-lg">
                 {count}+
             </h2>
-            <p className="text-lg font-medium text-gray-700">{label}</p>
+            <p className="text-base md:text-lg font-medium text-gray-700">{label}</p>
         </div>
     );
 };
+
 
 const Stats = () => {
     const slides = [
         {
             img: "src/assets/stats/city-1.jpg",
-            icon: <FaUser className="text-5xl text-indigo-500" />,
+            icon: <FaUser className="text-4xl md:text-5xl text-indigo-500" />,
             title: "Jobs Provided",
             count: 1000,
         },
         {
             img: "src/assets/image-gallery/lahore.jpg",
-            icon: <FaBuilding className="text-5xl text-indigo-500" />,
+            icon: <FaBuilding className="text-4xl md:text-5xl text-indigo-500" />,
             title: "Registered Companies",
             count: 500,
         },
         {
             img: "src/assets/image-gallery/sea.jpg",
-            icon: <FaClipboardList className="text-5xl text-indigo-500" />,
+            icon: <FaClipboardList className="text-4xl md:text-5xl text-indigo-500" />,
             title: "Active Listings",
             count: 25000,
         },
         {
             img: "src/assets/image-gallery/escalator.jpg",
-            icon: <FaPeopleCarry className="text-5xl text-indigo-500" />,
+            icon: <FaPeopleCarry className="text-4xl md:text-5xl text-indigo-500" />,
             title: "Job Seekers Connected",
             count: 100000,
         },
@@ -121,144 +127,97 @@ const Stats = () => {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setFade(false); // fade out
+            setFade(false);
             setTimeout(() => {
                 setCurrentIndex((prev) => (prev + 1) % slides.length);
-                setFade(true); // fade in new slide
-            }, 1000); // fade out duration
+                setFade(true);
+            }, 1000);
         }, 10000);
         return () => clearInterval(interval);
-    }, [slides.length]);
+    }, []);
 
     const { img, icon, title, count } = slides[currentIndex];
 
     return (
-        <section className="relative min-h-[100vh] w-full py-[15vh] bg-white flex flex-col gap-12 items-center justify-center text-center">
-            <SectionHeader number={"1"} title={"Stats & Facts"}/>
-            <h2 className="text-8xl font-semibold text-black w-[72%] leading-tight">
+        <section className="relative min-h-screen w-full py-20 bg-white flex flex-col gap-12 items-center text-center">
+            <SectionHeader number={"1"} title={"Stats & Facts"} />
+
+            <h2 className="text-4xl sm:text-6xl md:text-8xl font-semibold text-black w-[90%] md:w-[72%] leading-tight">
                 Finding jobs in Pakistan is tough, we’re here to change that.
             </h2>
 
-            <div className="relative flex justify-between w-[80%] h-[100vh] p-8 bg-white rounded-3xl border-6 border-indigo-400 shadow-xl overflow-hidden">
+            <div className="relative flex flex-col md:flex-row w-[95%] md:w-[80%] p-4 md:p-8 bg-white rounded-3xl border-6 border-indigo-400 shadow-xl overflow-hidden">
                 <div
-                    className={`absolute inset-0 flex justify-between items-center p-4 transition-opacity duration-1000 ease-in-out ${
+                    className={`flex flex-col md:flex-row gap-6 transition-opacity duration-1000 ${
                         fade ? "opacity-100" : "opacity-0"
                     }`}
                 >
-                    <div className="w-[55%] h-full rounded-2xl overflow-hidden">
-                        <img
-                            src={img}
-                            className="w-full h-full object-cover rounded-2xl"
-                        />
+                    <div className="w-full md:w-[55%] h-[300px] md:h-full rounded-2xl overflow-hidden">
+                        <img src={img} className="w-full h-full object-cover" />
                     </div>
-                    <div className="w-[44%] h-full flex flex-col gap-20 justify-center bg-indigo-500 p-8 rounded-2xl text-white">
-                        <div className="flex w-full h-1/6 items-center justify-center gap-4">
+
+                    <div className="w-full md:w-[45%] flex flex-col gap-8 justify-center bg-indigo-500 p-6 md:p-8 rounded-2xl text-white">
+                        <div className="flex flex-col md:flex-row items-center gap-4">
                             <div className="bg-white p-4 rounded-full">{icon}</div>
-                            <h3 className="text-6xl font-bold">{title}</h3>
+                            <h3 className="text-3xl md:text-5xl font-bold">{title}</h3>
                         </div>
-                        <div className="bg-white w-full h-1/3 rounded-2xl flex justify-center items-center">
+
+                        <div className="bg-white w-full rounded-2xl flex justify-center items-center py-10">
                             <CountUpStats end={count} duration={2500} label={title} />
                         </div>
                     </div>
                 </div>
             </div>
-            <div className="flex gap-4 mt-6">
-                {slides.map((_, index) => (
-                    <div
-                        key={index}
-                        className={`w-4 h-4 rounded-full transition-all duration-500 ${
-                            currentIndex === index
-                                ? "bg-indigo-600 scale-110"
-                                : "bg-gray-300"
-                        }`}
-                    ></div>
-                ))}
-            </div>
-            <button className="mt-10 px-22 py-8 text-2xl font-semibold text-white bg-indigo-600 rounded-full shadow-lg hover:bg-white hover:text-indigo-600 transition-all duration-600">
-                Get Started
-            </button>
         </section>
     );
-}
+};
 
 
 const Services = () => {
     return (
-        <section className={"min-h-screen w-full bg-white p-4 text-white font-semibold"}>
-            <div className={"w-full h-[120vh] bg-gradient-to-br to-blue-300 from-indigo-500 rounded-3xl"}>
-                <div className={"w-full h-full bg-gradient-to-bl to-blue-400 from-indigo-700 rounded-3xl px-20 py-25"}>
-                    <div className={"flex flex-col gap-12 items-start justify-center"}>
-                        <p className="text-2xl border-b border-white pb-4 w-full text-white">
-                            Solutions
-                        </p>
-                        <h2 className={"text-7xl"}>Key for the near Future</h2>
-                        <div className={"grid grid-cols-2 grid-rows-3 py-14 gap-x-10 gap-y-18"}>
-                            <div className="flex items-center gap-8 px-8 py-20 rounded-2xl bg-white text-black shadow-lg hover:shadow-2xl hover:text-indigo-700 transition-all duration-300">
+        <section className="min-h-screen w-full bg-white p-4">
+            <div className="w-full bg-gradient-to-br to-blue-300 from-indigo-500 rounded-3xl">
+                <div className="w-full bg-gradient-to-bl to-blue-400 from-indigo-700 rounded-3xl px-6 md:px-20 py-16 md:py-25">
+                    <p className="text-xl md:text-2xl border-b border-white pb-4 text-white">
+                        Solutions
+                    </p>
+
+                    <h2 className="text-4xl md:text-7xl text-white mt-6">
+                        Key for the near Future
+                    </h2>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-14">
+                        {[
+                            ["Applications Aggregation", "checklist.gif"],
+                            ["Smart Job Matching", "social-media.gif"],
+                            ["Instant Job Alerts", "chat.gif"],
+                            ["Verified Employers", "verified.gif"],
+                        ].map(([title, img], i) => (
+                            <div
+                                key={i}
+                                className="flex flex-col md:flex-row gap-6 px-6 md:px-8 py-10 md:py-20 rounded-2xl bg-white text-black shadow-lg hover:shadow-2xl transition-all"
+                            >
                                 <img
-                                    src="src/assets/checklist.gif"
-                                    alt="Smart Job Matching"
+                                    src={`src/assets/${img}`}
                                     className="w-20 h-20 object-contain"
                                 />
-                                <div className="flex flex-col gap-8">
-                                    <h3 className="text-5xl font-bold">Applications Aggregation</h3>
-                                    <p className="text-2xl font-normal ">
-                                        We provide an easy tabular interface to speed up the recruitment process
-                                        for the employers
+                                <div>
+                                    <h3 className="text-3xl md:text-5xl font-bold">{title}</h3>
+                                    <p className="text-lg md:text-2xl mt-4">
+                                        Powerful tools designed to make hiring faster and smarter.
                                     </p>
                                 </div>
                             </div>
-                            <div className="flex items-center gap-8 px-8 py-20 rounded-2xl bg-white text-black shadow-lg hover:shadow-2xl hover:text-indigo-700 transition-all duration-300">
-                                <img
-                                    src="src/assets/social-media.gif"
-                                    alt="Smart Job Matching"
-                                    className="w-20 h-20 object-contain"
-                                />
-                                <div className="flex flex-col gap-8">
-                                    <h3 className="text-5xl font-bold">Smart Job Matching</h3>
-                                    <p className="text-2xl font-normal">
-                                        Our AI-powered system connects the right candidates to the
-                                        right opportunities, saving time for both employers and job seekers.
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-8 px-8 py-20 rounded-2xl bg-white text-black shadow-lg hover:shadow-2xl hover:text-indigo-700 transition-all duration-300">
-                                <img
-                                    src="src/assets/chat.gif"
-                                    alt="Instant Job Alerts"
-                                    className="w-20 h-20 object-contain"
-                                />
-                                <div className="flex flex-col gap-8">
-                                    <h3 className="text-5xl font-bold">Instant Job Alerts</h3>
-                                    <p className="text-2xl font-normal">
-                                        Stay updated with instant notifications whenever new job
-                                        openings match your skills and preferences.
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-8 px-8 py-20 rounded-2xl bg-white text-black shadow-lg hover:shadow-2xl hover:text-indigo-700 transition-all duration-300">
-                                <img
-                                    src="src/assets/verified.gif"
-                                    alt="Verified Employers"
-                                    className="w-20 h-20 object-contain"
-                                />
-                                <div className="flex flex-col gap-8">
-                                    <h3 className="text-5xl font-bold">Verified Employers</h3>
-                                    <p className="text-2xl font-normal">
-                                        We ensure every company on JobConnect is verified, giving you
-                                        a safe and trustworthy platform to find your next career move.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                        ))}
                     </div>
                 </div>
             </div>
         </section>
     );
-}
+};
+
 
 const ImageGallery = () => {
-    // You can replace these with your local imports (src/assets/image-gallery/...)
     const images = [
         "src/assets/image-gallery/escalator.jpg",
         "src/assets/image-gallery/faisal-mosque.jpg",
@@ -269,36 +228,39 @@ const ImageGallery = () => {
     ];
 
     return (
-        <section className="min-h-[140vh] w-full bg-white flex flex-col items-center justify-center text-black gap-20">
-            {/* Heading */}
-            <div className="w-[70%] text-center">
-                <h2 className="text-6xl md:text-8xl font-semibold leading-tight">
-                    Our commitment to empower talent is paving the way for a smarter, connected future
-                </h2>
-            </div>
+        <section className="min-h-screen w-full bg-white flex flex-col items-center gap-16 px-4">
+            <h2 className="text-4xl sm:text-6xl md:text-8xl font-semibold text-center w-[90%]">
+                Our commitment to empower talent is paving the way for a smarter future
+            </h2>
 
-            {/* Button */}
-            <button className="px-20 py-6 text-2xl font-semibold text-white bg-indigo-900 rounded-full shadow-lg hover:bg-indigo-500 transition-all duration-300">
-                See More
-            </button>
-
-            {/* Scrollable Image Gallery */}
-            <div className="w-full overflow-x-auto scrollbar-hide">
-                <div className="flex space-x-8 px-10 py-6">
-                    {images.map((src, index) => (
-                        <div
-                            key={index}
-                            className="min-w-[250px] md:min-w-[300px] h-[400px] rounded-2xl overflow-hidden flex-shrink-0 shadow-2xl bg-gray-100"
-                            style={{
-                                backgroundImage: `url(${src})`,
-                                backgroundSize: "cover",
-                                backgroundPosition: "center",
-                            }}
-                        />
-                    ))}
-                </div>
+            <div className="w-full overflow-x-auto flex gap-6 px-6">
+                {images.map((src, i) => (
+                    <div
+                        key={i}
+                        className="min-w-[260px] h-[360px] rounded-2xl shadow-xl bg-cover bg-center"
+                        style={{ backgroundImage: `url(${src})` }}
+                    />
+                ))}
             </div>
         </section>
+    );
+};
+
+
+
+const FAQItem = ({ question, answer }) => {
+    const [open, setOpen] = useState(false);
+
+    return (
+        <div className="w-full p-6 rounded-md border shadow transition-all">
+            <div className="flex justify-between items-center">
+                <h3 className="text-xl md:text-2xl">{question}</h3>
+                <button onClick={() => setOpen(!open)}>
+                    {open ? <FaMinus /> : <FaPlus />}
+                </button>
+            </div>
+            {open && <p className="mt-4 text-gray-600">{answer}</p>}
+        </div>
     );
 };
 
@@ -306,141 +268,62 @@ const FAQ = () => {
     const questions = [
         {
             question: "What is JobConnect's purpose?",
-            answer:
-                "The purpose of JobConnect is to connect job seekers and employers efficiently by providing a user-friendly platform."
+            answer: "To connect employers and job seekers efficiently.",
         },
         {
-            question: "Is JobConnect free to use?",
-            answer:
-                "Yes, JobConnect is free for job seekers. Employers can post a limited number of jobs for free before upgrading."
+            question: "Is JobConnect free?",
+            answer: "Yes, for job seekers.",
         },
-        {
-            question: "How do I apply for a job?",
-            answer:
-                "You can search for jobs on the homepage and click 'Apply Now' to submit your resume directly through our website."
-        },
-        {
-            question: "Can employers view candidate profiles?",
-            answer:
-                "Yes, registered employers can view candidate profiles and contact them directly through the platform."
-        },
-        {
-            question: "Does JobConnect support remote jobs?",
-            answer:
-                "Absolutely! JobConnect allows both employers and job seekers to filter and post remote job opportunities."
-        }
     ];
 
     return (
-        <section className="w-full min-h-[120vh] flex gap-16 items-center justify-center text-black">
-            <div className="flex flex-col gap-12 text-center w-[55vw]">
-                <h2 className="text-8xl font-semibold">FAQ</h2>
-                <p className="text-gray-700 text-2xl">
-                    Here you will find the answers to the most frequently asked questions.
-                </p>
-
-                <div className="flex flex-col gap-8">
-                    {questions.map((q, index) => (
-                        <FAQItem key={index} question={q.question} answer={q.answer} />
+        <section className="w-full min-h-screen flex justify-center px-4">
+            <div className="w-full md:w-[55vw] text-center">
+                <h2 className="text-5xl md:text-8xl font-semibold mb-6">FAQ</h2>
+                <div className="flex flex-col gap-6">
+                    {questions.map((q, i) => (
+                        <FAQItem key={i} {...q} />
                     ))}
                 </div>
             </div>
         </section>
     );
-}
-
-const FAQItem = ({ question, answer }) => {
-    const [open, setOpen] = React.useState(false);
-
-    return (
-        <div className="w-full px-8 py-8 rounded-md border border-gray-300 shadow shadow-gray-400 transition-all duration-500 overflow-hidden">
-            <div className="flex justify-between items-center">
-                <h3 className="text-2xl">{question}</h3>
-                <div
-                    onClick={() => setOpen(!open)}
-                    className="cursor-pointer transition-transform duration-200"
-                >
-                    {open ? (
-                        <FaMinus className="text-2xl text-indigo-700" />
-                    ) : (
-                        <FaPlus className="text-2xl text-indigo-700" />
-                    )}
-                </div>
-            </div>
-
-            <div
-                className={`transition-all duration-500 overflow-hidden ${
-                    open ? "max-h-[200px] mt-4 opacity-100" : "max-h-0 opacity-0"
-                }`}
-            >
-                <p className="text-gray-600 text-[21px] text-start ">{answer}</p>
-            </div>
-        </div>
-    );
 };
+
 
 
 const Footer = () => {
     return (
-        <footer className={"relative w-full min-h-[75vh] bg-indigo-950 px-8 py-20 text-white"}>
-            <div className={"flex gap-24 justify-start items-start"}>
-                <div className={"flex gap-4 items-center bg-white text-indigo-900 px-12 py-4 rounded-full"}>
-                    <img src={"/logo.png"} width={"30"} height={"25"}/>
-                    <h2 className={"text-2xl font-bold"}>JobConnect</h2>
+        <footer className="w-full bg-indigo-950 px-6 py-20 text-white">
+            <div className="flex flex-col md:flex-row gap-16">
+                <div className="bg-white text-indigo-900 px-10 py-4 rounded-full flex items-center gap-4">
+                    <img src="/logo.png" width="30" />
+                    <h2 className="text-xl font-bold">JobConnect</h2>
                 </div>
-                <div className={"flex flex-col gap-8 px-12"}>
-                    <h2 className={"text-3xl font-bold py-4"}>Platform</h2>
-                    <div className={"flex flex-col gap-4 text-gray-400 text-2xl"}>
-                        <p className={"hover:text-indigo-200 hover:underline transition-all duration-300"}>Solutions</p>
-                        <p className={"hover:text-indigo-200 hover:underline transition-all duration-300"}>How it works?</p>
-                        <p className={"hover:text-indigo-200 hover:underline transition-all duration-300"}>Pricing</p>
-                    </div>
-                </div>
-                <div className={"flex flex-col gap-8 px-12"}>
-                    <h2 className={"text-3xl font-bold py-4"}>Resources</h2>
-                    <div className={"flex flex-col gap-4 text-gray-400 text-2xl"}>
-                        <p className={"hover:text-indigo-200 hover:underline transition-all duration-300"}>Blog</p>
-                        <p className={"hover:text-indigo-200 hover:underline transition-all duration-300"}>Help Center</p>
-                        <p className={"hover:text-indigo-200 hover:underline transition-all duration-300"}>Support</p>
-                    </div>
-                </div>
-                <div className={"flex flex-col gap-8 px-12"}>
-                    <h2 className={"text-3xl font-bold py-4"}>Company</h2>
-                    <div className={"flex flex-col gap-4 text-gray-400 text-2xl"}>
-                        <p className={"hover:text-indigo-200 hover:underline transition-all duration-300"}>About</p>
-                        <p className={"hover:text-indigo-200 hover:underline transition-all duration-300"}>Our Mission</p>
-                        <p className={"hover:text-indigo-200 hover:underline transition-all duration-300"}>Careers</p>
-                        <p className={"hover:text-indigo-200 hover:underline transition-all duration-300"}>Contact</p>
-                    </div>
-                </div>
-                <div className={"flex flex-col gap-4 justify-center items-center p-12 bg-white text-indigo-900 w-[25vw] h-[45vh] rounded-3xl"}>
-                    <h2 className={"text-3xl font-bold"}>Your Source for JobConnect updates</h2>
-                    <p className={"text-gray-600 text-lg font-semibold"}>Stay in the loop with our JobConnect newsletter, where we deliver bite-sized insights into the newest
-                    jobconnect updates and solutions</p>
-                    <div className="w-full flex items-center bg-gray-100 rounded-md border-2 border-transparent focus-within:border-indigo-600 transition-all duration-200 px-3">
-                        <FaEnvelope className="text-indigo-600 text-lg mr-3" />
-                        <input
-                            type="email"
-                            placeholder="Your e-mail..."
-                            className="w-full h-16 bg-gray-100 outline-none border-none text-[20px] font-semibold"
-                        />
-                    </div>
 
-                    <button className={"bg-indigo-800 w-full px-12 py-4 text-white rounded-md text-lg"}>Get In Touch</button>
+                <div className="bg-white text-indigo-900 p-8 rounded-3xl w-full md:w-[25vw]">
+                    <h3 className="text-2xl font-bold mb-4">
+                        JobConnect updates
+                    </h3>
+                    <input
+                        type="email"
+                        placeholder="Your email"
+                        className="w-full p-4 rounded-md"
+                    />
                 </div>
             </div>
         </footer>
     );
-}
+};
+
 
 const SectionHeader = ({ number, title }) => {
     return (
-        <div className="flex items-center gap-4 font-[Nunito] text-2xl">
-            <div className="bg-indigo-900 text-white font-bold w-15 h-15 rounded-full flex justify-center items-center">
-                {number.toString().padStart(2, "0")}
+        <div className="flex items-center gap-4 text-xl md:text-2xl">
+            <div className="bg-indigo-900 text-white font-bold w-12 h-12 rounded-full flex items-center justify-center">
+                {number}
             </div>
-            <div className="w-12 h-[1px] bg-white"></div>
-            <div className="bg-gray-900 text-white font-semibold px-6 py-2 rounded-full">
+            <div className="bg-gray-900 text-white px-4 py-2 rounded-full">
                 {title}
             </div>
         </div>
@@ -448,19 +331,18 @@ const SectionHeader = ({ number, title }) => {
 };
 
 
-
 const LandingPage = () => {
-  return (
-      <main className={"bg-white overflow-x-hidden font-[Nunito]"}>
-          <Navbar2/>
-          <Hero/>
-          <Stats/>
-          <Services/>
-          <ImageGallery/>
-          <FAQ/>
-          <Footer />
-      </main>
-  );
-}
+    return (
+        <main className="bg-white overflow-x-hidden font-[Nunito]">
+            <Navbar2 />
+            <Hero />
+            <Stats />
+            <Services />
+            <ImageGallery />
+            <FAQ />
+            <Footer />
+        </main>
+    );
+};
 
 export default LandingPage;
