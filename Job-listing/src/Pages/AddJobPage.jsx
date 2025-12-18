@@ -93,7 +93,7 @@ const AddJobPage = () => {
 
   return (
     <>
-      <section className="bg-[#d4a574] bg-opacity-30">
+      <section className="bg-blue-200 bg-opacity-30">
         <div className="container m-auto max-w-2xl py-24">
           <div className="bg-gradient-to-br from-[#f5f7fa] to-[#d4a574] bg-opacity-95 px-6 py-8 mb-4 shadow-md rounded-md border-t-4 border-[#1a2f4e] m-4 md:m-0">
             

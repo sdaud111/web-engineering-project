@@ -79,7 +79,7 @@ const AddJobRightProgressBar = () => {
     if (!validateStep()) return;
 
     try {
-        const res = await fetch("http://localhost:5000/jobs", {
+        const res = await fetch("http://localhost:5000/api/jobs", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(MultiStepForm.data),

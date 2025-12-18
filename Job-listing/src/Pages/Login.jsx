@@ -19,7 +19,11 @@ const LeftSidebar = () => {
             } else {
                 localStorage.setItem("isAuth", true);
                 localStorage.setItem("user", JSON.stringify(data));
-                window.location.href = "/protected";
+                if(data.user.userType === "employer") {
+                    window.location.href = "/profile";
+                    return;
+                }
+                window.location.href = "/";
             }
         } catch (err) {
             console.log(err);
@@ -54,12 +58,7 @@ const LeftSidebar = () => {
                             className="w-full h-12 sm:h-14 md:h-16 bg-gray-100 outline-none border-none text-[16px] sm:text-[18px] md:text-[20px] font-semibold"
                         />
                     </div>
-                    <p className="font-semibold text-gray-600 text-sm sm:text-lg">
-                        Forgot password?{" "}
-                        <a className="text-indigo-700 font-bold cursor-pointer hover:underline">
-                            Click here
-                        </a>
-                    </p>
+                   
                     <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-8 font-bold w-full justify-between">
                         <button
                             onClick={handleLogin}
@@ -67,7 +66,9 @@ const LeftSidebar = () => {
                         >
                             login
                         </button>
-                        <button className="text-indigo-700 bg-gray-200 px-8 py-3 sm:py-4 rounded-4xl w-full sm:w-1/2">
+                        <button
+                        onClick={() => window.location.href = "/signup2"}
+                        className="text-indigo-700 bg-gray-200 px-8 py-3 sm:py-4 rounded-4xl w-full sm:w-1/2">
                             sign up
                         </button>
                     </div>

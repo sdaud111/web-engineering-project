@@ -61,7 +61,7 @@ console.log(userId);
   if (!user) return <p className="text-center text-gray-500 mt-10">Loading profile...</p>;
 
   return (
-    <section className="bg-[#f5f7fa] bg-opacity-50 min-h-screen">
+    <section className="bg-[#f5f7fa] bg-opacity-50 min-h-screen flex hustify-center items-start">
       <div className="container m-auto max-w-4xl py-24 px-6">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-extrabold text-[#1a2f4e] sm:text-5xl">
@@ -122,50 +122,6 @@ console.log(userId);
             </div>
           </div>
 
-          {/* Right Column: Resume & AI Actions */}
-          <div className="space-y-8">
-          <div className="bg-white p-6 rounded-lg shadow-lg min-h-[180px]">
-  <h2 className="text-2xl font-bold text-[#1a2f4e] mb-4 flex items-center">
-    <FaFileAlt className="mr-3" /> Resume
-  </h2>
-  <p className="text-[#4a5f7f] mb-4 break-words">
-    Current file: <strong>{user.resume || "No resume uploaded"}</strong>
-  </p>
-
-  {/* Custom file input */}
-  <div className="relative w-full">
-    <input
-      id="resumeUpload"
-      type="file"
-      accept=".pdf,.doc,.docx"
-      onChange={handleResumeUpload}
-      className="absolute top-0 left-0 w-full h-full opacity-0 cursor-pointer"
-    />
-    <label
-      htmlFor="resumeUpload"
-      className="w-full bg-[#4a5f7f] text-white py-2 px-4 rounded-lg text-center block cursor-pointer hover:bg-[#d4a574] hover:text-[#1a2f4e] transition-colors"
-    >
-      {user.resume ? "Update Selected File" : "Upload New Resume"}
-    </label>
-  </div>
-</div>
-
-
-
-            <div className="bg-white p-6 rounded-lg shadow-lg border-l-4 border-[#4a5f7f]">
-              <h2 className="text-2xl font-bold text-[#1a2f4e] mb-4 flex items-center">
-                <FaBrain className="mr-3" /> AI Actions
-              </h2>
-              <div className="space-y-3">
-                <button className="w-full bg-[#1a2f4e] text-white py-2 rounded-lg hover:bg-[#2A5A8C]">
-                  Generate AI Summary
-                </button>
-                <button className="w-full border-2 border-[#1a2f4e] text-[#1a2f4e] py-2 rounded-lg hover:bg-[#d4a574]">
-                  Get Profile Suggestions
-                </button>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

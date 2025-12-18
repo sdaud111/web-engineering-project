@@ -55,7 +55,7 @@ const EmployerDashboard = () => {
 
         {/* Quick Actions */}
         <div className="flex justify-center gap-4 mb-12">
-          <Link to="/add-job" className="flex items-center bg-[#1a2f4e] text-white px-6 py-3 rounded-lg hover:bg-[#2A5A8C] transition-colors shadow-md">
+          <Link to="/add-job2" className="flex items-center bg-[#1a2f4e] text-white px-6 py-3 rounded-lg hover:bg-[#2A5A8C] transition-colors shadow-md">
             <FaPlus className="mr-2" /> Post a New Job
           </Link>
           <Link to="/employer/find-talent" className="flex items-center bg-[#4a5f7f] text-white px-6 py-3 rounded-lg hover:bg-[#d4a574] hover:text-[#1a2f4e] transition-colors shadow-md">
