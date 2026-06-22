@@ -148,5 +148,7 @@ job-connect/
 
 ## Built By
 
-**Rida Waheed** — Software Engineering Student at NUST Islamabad  
-[LinkedIn](https://linkedin.com/in/rida-waheed-4b5166319) | [GitHub](https://github.com/Rida4142)
+**Rida Waheed** 
+**Daud Shafi** 
+**Ahmed Raza** 
+— Software Engineering Students at NUST Islamabad  
