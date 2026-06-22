@@ -133,8 +133,15 @@ job-connect/
 ---
 
 ## Screenshots
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/0a24df00-826e-4f1e-b6d1-af13d0f43c51" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c184aca5-95bf-4094-82d7-c73468444680" />
 
-> Add screenshots of your dashboard, job listing page, and application flow here
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/accdf244-fae3-49bf-b11d-ea523ff063eb" />
+
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/a24d4307-db24-42f7-8c2a-c9d9b52e59d3" />
+
 
 ---
 
